@@ -4,11 +4,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Main</title>
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<%@include file="search.jsp" %>
+	
+	<div class="popup-overlay" id="popup">
+        <div class="popup-content">
+          <div class="popup-header">📢 알려드립니다.</div>
+          <div class="popup-body">
+            ※ 위생 케어 서비스 ※<br> 
+            우리 아이를 위한 완벽한 위생 관리!<br>
+            육아육아에서는 전문 케어 업체와 협업하에 소독 및 품질 검수를 통해
+            보다 더 위생적인 제품을 받아 볼 수 있도록 도와드리고 있습니다. 
+            <br>(제품구매 창에서 확인해주세요😊)
+          </div>
+          <div class="popup-footer">
+            <button class="close-btn" onclick="closePopup()">닫기</button>
+          </div>
+        </div>
+      </div>
+   
 	 <div id="feed">
             <!-- 포스트 1 -->
             <div class="post">
@@ -100,5 +117,23 @@
                                 </div>
                             </div>  
                          </div>
+                         
+		 <script>
+        // 페이지 로드 시 팝업 열기
+        window.onload = function() {
+          const popup = document.getElementById('popup');
+          if (popup) {
+        	    popup.style.display = 'flex';
+        	  } else {
+        	    console.error('Popup element not found.');
+        	  }
+        	};
+    
+        // 팝업 닫기 기능
+        function closePopup() {
+          const popup = document.getElementById('popup');
+          popup.style.display = 'none';
+        }
+      </script>
 </body>
 </html>

@@ -51,7 +51,7 @@
 
 
 
-.details {
+/* .details {
   display: flex;
     justify-content: space-between;
     max-width: 800px;
@@ -60,6 +60,38 @@
     padding: 20px;
     border-radius: 3px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.details {
+  width: 100%;
+  margin: 20px auto;
+}
+
+.details label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.details input, 
+.details textarea, 
+.details select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.details textarea {
+  resize: vertical; /* 높이 조절 가능 */
+}
+
+.details select {
+  cursor: pointer;
 }
 
 .detail-comment {
@@ -80,7 +112,7 @@
   border-radius: 3px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
+/* =============================================== */
 .comment {
   text-align: center;
   font-size: 18px;

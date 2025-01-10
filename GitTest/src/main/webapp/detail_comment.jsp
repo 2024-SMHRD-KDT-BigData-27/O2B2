@@ -9,6 +9,7 @@
 </head>
 <body>
 	<%@include file="search.jsp" %>
+	 
 	 <div class="container">
                 <div class="product">
                     <div class="product-image">
@@ -22,7 +23,7 @@
                         <span class="delivery-fee">• 배송비 </span><span class="delivery-fee">　　3000원</span>
                         
                         <div class="product-button">
-                            <button><a href="#" class="btn1">구매하기</button></a>
+                            <button><a href="delivery.jsp" class="btn1">구매하기</button></a>
                             <button><a href="#" class="btn2">찜❤</button></a>
                         </div>
                     </div>
@@ -32,7 +33,7 @@
 
                 <h2 class="detail-comment">상세 내용</h2>
 
-            <div class="details">
+<!--             <div class="details">
                 <div>
                     <p>구매시기:</p>
                     <p>실사용기간:</p>
@@ -41,7 +42,36 @@
                     <p>*성별:</p>
                     <p>*나이:</p>
                 </div>
-            </div>
+            </div> -->
+            
+            <div class="details">
+  <div>
+    <label for="purchase-date">구매시기:</label>
+    <input type="text" id="purchase-date" name="purchase-date" placeholder="예: 3개월">
+    
+    <br><label for="usage-duration">실사용기간:</label>
+    <input type="text" id="usage-duration" name="usage-duration" placeholder="예: 6개월">
+    
+    <br><label for="product-condition">상품상태:</label>
+    <input type="text" id="product-condition" name="product-condition" placeholder="예: 새상품/중고">
+    
+    <br><label for="product-review">상품후기:</label>
+    <textarea id="product-review" name="product-review" placeholder="상품 후기를 작성해주세요"></textarea>
+    
+    <br><label for="gender">*성별:</label>
+    <select id="gender" name="gender">
+      <option value="">선택</option>
+      <option value="male">남아</option>
+      <option value="female">여아</option>
+      <option value="neutral">무관</option>
+    </select>
+    
+    <br><label for="age">*나이:</label>
+    <input type="number" id="age" name="age" placeholder="예: 3" min="0">
+  </div>
+</div>
+            
+            
             
             <h2 class="comment">댓글</h2>
                 <div class="comment-section">

@@ -21,7 +21,6 @@
 			<td align="left">아이디</td>
 			<td><input name="id" type="text1"></td>
 		</tr>
-		</tr>
 		<tr bgcolor="whitesmoke" height="50">
 			<td align="left">비밀번호</td>
 			<td><input class="password" type="password" maxlength="10"></td>
