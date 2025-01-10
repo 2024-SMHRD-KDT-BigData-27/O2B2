@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.UserMapper">
+
+	<!-- 회원 가입을 위한 sql문장 작성 -->
+	<insert id="join" parameterType="com.smhrd.model.userDTO">
+		insert into USER_INFO values(#{ID}, #{PW}, #{NAME}, #{ADDRESS},
+		 #{DETAILED_ADDRESS}, #{PHONE}, #{EMAIL}, sysdate)
+	</insert>
+	
+	<select id="login" parameterType="com.smhrd.model.userDTO" resultType="com.smhrd.model.userDTO">
+		select * from USER_INFO where ID=#{ID} and PW=#{PW}
+	</select>
+</mapper>
