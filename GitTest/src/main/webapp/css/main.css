@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @charset "UTF-8";
 
 #feed {
@@ -23,3 +24,30 @@
     transform: scale(1.07);
     transition: transform 0.4s ease-in-out;
 }
+=======
+@charset "UTF-8";
+
+#feed {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 20px 280px;
+    justify-content: center;
+}
+
+.post > img {
+    width: 20px;
+    height: 20px;
+    padding: 30px;
+    object-fit: contain;
+}
+
+.post{
+    cursor:pointer;
+}
+
+.post:hover {
+    transform: scale(1.07);
+    transition: transform 0.4s ease-in-out;
+}
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-27/O2B2.git

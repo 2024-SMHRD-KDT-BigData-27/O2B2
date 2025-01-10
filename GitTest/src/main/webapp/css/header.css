@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* styles.css */
 @font-face {
   font-family: 'GowunDodum-Regular';
@@ -181,3 +182,188 @@ button {
 .register-link:hover {
   text-decoration: underline;
 }
+=======
+/* styles.css */
+@font-face {
+  font-family: 'GowunDodum-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+
+  font-family:  GowunDodum-Regular;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+    font-family:  GowunDodum-Regular;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbe3e3;
+  padding: 20px 20px;
+}
+
+.logo {
+  margin-left: 60px;
+  font-size: 40px;
+  color: #ff6384;
+}
+
+.search {
+    background-color: #fbe3e3;
+    border : none;
+    cursor: pointer;
+}
+
+.search-bar {
+  width: 500px;
+  padding: 5px;
+}
+
+.user-options {
+  margin-right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  top: 30px;
+  left:-40px;
+  width: 110px;
+  padding: 10px;
+  line-height: 1.5;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.logout-button {
+    margin-left: -25px;
+    background-color: #f7cbcb;
+    border: none;
+    padding: 10px 15px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: #f7cbcb;
+    border: none;
+    padding: 20px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* 모달 스타일 */
+/* 모달 배경 */
+.modal {
+  display: none; /* 기본적으로 숨김 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+}
+
+/* 모달 내용 */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto; /* 화면 중앙에 위치 */
+  padding: 20px 20px 60px 20px;
+  border-radius: 10px;
+  width: 30%; /* 너비 조정 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* 닫기 버튼 */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* 입력 필드 스타일 */
+.login-form > [type="text"],
+.login-form > input[type="password"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+#login-submit {
+  background-color: #f7cbcb;
+  border: none;
+  color: white;
+  width: 80%;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#login-submit:hover {
+  background-color: #e6b3b3;
+}
+
+/* 회원가입 링크 */
+.register-link {
+  display: block;
+  margin-top: 20px;
+  color: #ff6384;
+  text-decoration: none;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+>>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-27/O2B2.git
