@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.userDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,14 +20,18 @@
             </div>
             <div class="user-options">
                 <!-- <a href="#">🔒 맘톡톡</a> -->
-                <a href="#">💌 찜 목록</a>
-           
+                
+           <% userDTO info = (userDTO)session.getAttribute("info");
+           		if(info == null){
+           %>
            <div>
                 <button class="login-button" id="login-button">로그인/회원가입</button>
             </div>
+            <%} else { %>
 
 
-                <div class="dropdown">
+				<a href="#">💌 찜 목록</a>
+				<div class="dropdown">
                     <button class="dropdown-button">마이페이지</button>
                     <div class="dropdown-content">
                         <a href="#">회원정보 변경</a>
@@ -36,7 +41,8 @@
                         <a href="#">제품 등록 페이지</a>
                     </div>
                 </div>
-                <button class="logout-button">로그아웃</button>
+                <a href="LogoutService"><button class="logout-button">로그아웃</button></a>
+                <% } %>
             </div>
         </div>
 
