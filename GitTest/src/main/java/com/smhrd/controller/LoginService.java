@@ -27,6 +27,7 @@ public class LoginService extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.setAttribute("info", info);
 		
+		System.out.println("로그인 성공");
 		response.sendRedirect("main.jsp");
 		
 		

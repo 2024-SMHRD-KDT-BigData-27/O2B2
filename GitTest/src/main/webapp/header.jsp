@@ -21,9 +21,9 @@
                 <!-- <a href="#">🔒 맘톡톡</a> -->
                 <a href="#">💌 찜 목록</a>
            
-<!--            <div>
+           <div>
                 <button class="login-button" id="login-button">로그인/회원가입</button>
-            </div> -->
+            </div>
 
 
                 <div class="dropdown">
