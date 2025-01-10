@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @charset "UTF-8";
     .form-container {
       max-width: 600px;
@@ -18,25 +18,4 @@
       border-radius: 5px;
       width: 300px;
       cursor: text;
-=======
-@charset "UTF-8";
-    .form-container {
-      max-width: 600px;
-      margin: 50px auto;
-      background: #ffffff;
-      padding: 20px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    /* ----------------------------------- */
-
-    input[type="text1"] {
-      padding: 5px 10px;
-      margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
-      background-color: #eeeeee;
-      border: none;
-      border-radius: 5px;
-      width: 300px;
-      cursor: text;
->>>>>>> branch 'master' of https://github.com/2024-SMHRD-KDT-BigData-27/O2B2.git
   }
