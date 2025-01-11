@@ -10,7 +10,7 @@
     }
     /* ----------------------------------- */
 
-    input[type="text1"] {
+    .delevery-text {
       padding: 5px 10px;
       margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
       background-color: #eeeeee;

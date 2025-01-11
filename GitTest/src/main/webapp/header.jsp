@@ -35,9 +35,9 @@
                     <button class="dropdown-button">마이페이지</button>
                     <div class="dropdown-content">
                         <a href="#">회원정보 변경</a>
-                        <a href="purchase.jsp">구매 내역</a>
-                        <a href="#">판매 내역</a>
-                        <a href="#">찜 목록 페이지</a>
+                        <a href="buylist.jsp">구매 내역</a>
+                        <a href="selllist.jsp">판매 내역</a>
+                        <a href="wishlist.jsp">찜 목록 페이지</a>
                         <a href="#">제품 등록 페이지</a>
                     </div>
                 </div>

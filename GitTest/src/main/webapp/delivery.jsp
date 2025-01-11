@@ -60,29 +60,29 @@
 
         <tr bgcolor="whitesmoke" height="50">
             <td align="left">* 받으실분</td>
-            <td><input name="name" type="text1"></td>
+            <td><input class="delevery-text" name="name" type="text"></td>
         </tr>
         <tr bgcolor="whitesmoke" height="50">
             <td align="left">* 주소</td>
             <td>
-                <input name="ad" type="text1" maxlength="30">
+                <input class="delevery-text" name="ad" type="text" maxlength="30">
                 <input type="submit" value="주소찾기"><br>
-                <input name="ad-detail" type="text1" placeholder="상세 주소를 입력하세요">
+                <input class="delevery-text" name="ad-detail" type="text" placeholder="상세 주소를 입력하세요">
             </td>
         </tr>
 
         <tr bgcolor="whitesmoke" height="50">
             <td align="left">* 휴대폰번호</td>
-            <td><input name="ph" type="text1" maxlength="10"></td>
+            <td><input class="delevery-text" name="ph" type="text" maxlength="10"></td>
         </tr>
         <tr bgcolor="whitesmoke" height="50">
             <td align="left">　전화번호</td>
-            <td><input name="ph" type="text1" maxlength="10"></td>
+            <td><input class="delevery-text" name="ph" type="text" maxlength="10"></td>
         </tr>
         <tr bgcolor="whitesmoke" height="50">
             <td align="left">　배송메모</td>
             <td><textarea cols="45" rows="5"></textarea></td>
         </tr>
-        </table>
+	</table>
 </body>
 </html>
