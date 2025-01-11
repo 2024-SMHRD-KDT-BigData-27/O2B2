@@ -53,11 +53,10 @@ function init(){
 		document.form.returnUrl.value = url;
 		document.form.resultType.value = resultType; // resultType항목 추가(2016.10.06)
 		document.form.action="https://business.juso.go.kr/addrlink/addrLinkUrl.do"; // 인터넷망
-		//document.form.action="https://business.juso.go.kr/addrlink/addrMobileLinkUrl.do"; //모바일 웹인 경우, 인터넷망
 		document.form.submit();
 	}else{
 		/** API 서비스 제공항목 확대 (2017.02) **/
-		opener.jusoCallBack("<%=roadFullAddr%>","<%=roadAddrPart1%>","<%=addrDetail%>", "<%=roadAddrPart2%>","<%=engAddr%>"
+		opener.jusoCallBack("<%=roadFullAddr%>","<%=roadAddrPart1%>","<%=addrDetail%>" , "<%=roadAddrPart2%>","<%=engAddr%>"
 			, "<%=jibunAddr%>","<%=zipNo%>", "<%=admCd%>", "<%=rnMgtSn%>", "<%=bdMgtSn%>", "<%=detBdNmList%>"
 			, "<%=bdNm%>", "<%=bdKdcd%>", "<%=siNm%>", "<%=sggNm%>", "<%=emdNm%>", "<%=liNm%>", "<%=rn%>", "<%=udrtYn%>"
 			, "<%=buldMnnm%>", "<%=buldSlno%>", "<%=mtYn%>", "<%=lnbrMnnm%>", "<%=lnbrSlno%>", "<%=emdNo%>");
@@ -73,11 +72,7 @@ function init(){
 		<input type="hidden" id="confmKey" name="confmKey" value=""/>
 		<input type="hidden" id="returnUrl" name="returnUrl" value=""/>
 		<input type="hidden" id="resultType" name="resultType" value=""/> // resultType항목 추가(2016.10.06)
-		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 START--> 
-		<!-- 
-		<input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/>
-		 -->
-		<!-- 해당시스템의 인코딩타입이 EUC-KR일경우에만 추가 END-->
+
 	</form>
 </body>
 </html>
