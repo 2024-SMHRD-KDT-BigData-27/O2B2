@@ -6,18 +6,13 @@
   font-style: normal;
 }
 
-body {
+body , button {
 
   font-family:  GowunDodum-Regular;
   margin: 0;
   padding: 0;
 }
 
-button {
-    font-family:  GowunDodum-Regular;
-    border: 0;
-    background-color: white;
-}
 
 .header-container {
   display: flex;

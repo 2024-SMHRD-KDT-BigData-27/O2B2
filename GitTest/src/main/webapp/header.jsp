@@ -19,7 +19,6 @@
                 <button class="search"> 검색 🔍</button>
             </div>
             <div class="user-options">
-                <!-- <a href="#">🔒 맘톡톡</a> -->
                 
            <% userDTO info = (userDTO)session.getAttribute("info");
            		if(info == null){
@@ -38,7 +37,7 @@
                         <a href="buylist.jsp">구매 내역</a>
                         <a href="selllist.jsp">판매 내역</a>
                         <a href="wishlist.jsp">찜 목록 페이지</a>
-                        <a href="#">제품 등록 페이지</a>
+                        <a href="Product_Registration.jsp">제품 등록 페이지</a>
                     </div>
                 </div>
                 <a href="LogoutService"><button class="logout-button">로그아웃</button></a>

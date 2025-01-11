@@ -19,15 +19,15 @@
     cursor: text;
 }
 
-.password {
+/*  .password {
     padding: 5px 10px;
-    margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
+    margin-left: 10px; 입력 필드와 버튼 사이 간격
     background-color: #eeeeee;
     border: none;
     border-radius: 5px;
     width: 300px;
     cursor: text;
-}
+}  */
 
 #child_age {
     width: 30%;

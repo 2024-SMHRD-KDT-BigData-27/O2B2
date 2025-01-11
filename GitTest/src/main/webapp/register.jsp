@@ -24,11 +24,11 @@
 			</tr>
 			<tr bgcolor="whitesmoke" height="50">
 				<td align="left">비밀번호</td>
-				<td><input name="pw" class="class="register-text" type="password" maxlength="10"></td>
+				<td><input name="pw" class="register-text" type="password" maxlength="10"></td>
 			</tr>
 			<tr bgcolor="whitesmoke" height="50">
 				<td align="left">비밀번호확인</td>
-				<td><input class="class="register-text" type="password" maxlength="10"></td>
+				<td><input class="register-text" type="password" maxlength="10"></td>
 			</tr>
 			<tr bgcolor="whitesmoke" height="50">
 				<td align="left">이름</td>

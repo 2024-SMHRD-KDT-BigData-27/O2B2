@@ -8,78 +8,74 @@
 <link href="${pageContext.request.contextPath}/css/detail_comment.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%@include file="search.jsp" %>
+	<%@include file="category.jsp" %>
 	 
 	 <div class="container">
-                <div class="product">
-                    <div class="product-image">
-                        <img src="./img/free-icon-menu-1828859.png" alt="유모차 이미지" width="100px" height="100px">
-                    </div>
-
-                    <div>
-                        <h2 class="product-title">이태리제 최고급 명품 럭셔리 디럭스 유모차 잉글레시나</h2>
-                        <h2 class="price">49,000원</h2>
-                        <span class="product-status">• 제품상태</span><span class="product-status">　　새제품</span><br>
-                        <span class="delivery-fee">• 배송비 </span><span class="delivery-fee">　　3000원</span>
-                        
-                        <div class="product-button">
-                            <button><a href="delivery.jsp" class="btn1">구매하기</button></a>
-                            <button><a href="#" class="btn2">찜❤</button></a>
-                        </div>
-                    </div>
-                </div>
-                </div>
-
-
-                <h2 class="detail-comment">상세 내용</h2>
-
-<!--             <div class="details">
-                <div>
-                    <p>구매시기:</p>
-                    <p>실사용기간:</p>
-                    <p>상품상태:</p>
-                    <p>상품후기:</p>
-                    <p>*성별:</p>
-                    <p>*나이:</p>
-                </div>
-            </div> -->
-            
-            <div class="details">
-  <div>
-    <label for="purchase-date">구매시기:</label>
-    <input type="text" id="purchase-date" name="purchase-date" placeholder="예: 3개월">
-    
-    <br><label for="usage-duration">실사용기간:</label>
-    <input type="text" id="usage-duration" name="usage-duration" placeholder="예: 6개월">
-    
-    <br><label for="product-condition">상품상태:</label>
-    <input type="text" id="product-condition" name="product-condition" placeholder="예: 새상품/중고">
-    
-    <br><label for="product-review">상품후기:</label>
-    <textarea id="product-review" name="product-review" placeholder="상품 후기를 작성해주세요"></textarea>
-    
-    <br><label for="gender">*성별:</label>
-    <select id="gender" name="gender">
-      <option value="">선택</option>
-      <option value="male">남아</option>
-      <option value="female">여아</option>
-      <option value="neutral">무관</option>
-    </select>
-    
-    <br><label for="age">*나이:</label>
-    <input type="number" id="age" name="age" placeholder="예: 3" min="0">
-  </div>
-</div>
-            
-            
-            
-            <h2 class="comment">댓글</h2>
-                <div class="comment-section">
-                    <div>
-                        <strong>준원맘:</strong> 3kg 여자아이도 가능할까요? ^^*?
-                        <div class="comment-reply">가영맘: 네네 가능합니다~ ^^❤️</div>
-                    </div>
+        <!-- 상품 이미지 및 기본 정보 -->
+        <div class="product" style="position: relative;"> <!-- position 추가 -->
+            <div class="product-image">
+                <img src="stroller.jpg" alt="유모차 이미지" style="max-width: 300px; border-radius: 8px;">
+            </div>
+            <div class="product-info">
+                <h2 class="product-title">이태리제 최고급 명품 럭셔리 디럭스 유모차 잉글레시나</h2>
+                <p class="price">49,000 원</p>
+                <ul>
+                    <li><strong>상품상태:</strong> 사용감 없음</li>
+                    <li><strong>배송비:</strong> 무료배송</li>
+                </ul>
+                <div class="product-button">
+                    <button class="btn1">구매하기</button>
+                    <button class="btn2">찜</button>
                 </div>
             </div>
+        </div>
+
+        <!-- 상세 입력 -->
+        <div class="details">
+            <h3 class="detail-comment">상세 내용 입력</h3>
+            <form action="submitDetails" method="post">
+                <label for="purchaseDate">구매시기:</label>
+                <input type="month" id="purchaseDate" name="purchaseDate" required>
+
+                <br><label for="usagePeriod">실사용 기간 (개월):</label>
+                <input type="number" id="usagePeriod" name="usagePeriod" min="1" max="120" required>
+
+                <br><label for="productCondition">상품상태:</label>
+                <select id="productCondition" name="productCondition" required>
+                    <option value="상">상</option>
+                    <option value="중">중</option>
+                    <option value="하">하</option>
+                </select>
+
+                <br><label for="review">상품후기:</label>
+                <textarea id="review" name="review" placeholder="상품 후기를 입력하세요..." rows="4" required></textarea>
+
+                <br><label for="gender">성별:</label>
+                <select id="gender" name="gender" required>
+                    <option value="남아">남아</option>
+                    <option value="여아">여아</option>
+                    <option value="무관">무관</option>
+                </select>
+
+                <br><label for="age">나이:</label>
+                    <input type="number" id="age" name="age" placeholder="예: 3" min="0">
+
+                <br><button type="submit" class="btn1">상세 정보 저장</button>
+            </form>
+        </div>
+
+        <!-- 댓글 입력 및 출력 -->
+        <div class="comment-section">
+            <h3 class="comment">💬 댓글</h3>
+            <form action="addComment" method="post">
+                <textarea name="comment" placeholder="댓글을 입력하세요..." required></textarea>
+                <button type="submit" class="btn1">댓글 작성</button>
+            </form>
+            <div class="comment-list">
+                <p><strong>준원맘:</strong> 3kg 여자아이도 가능할까요? ^^*</p>
+                <p>↳ <strong>가영맘:</strong> 네! 가능합니다 ~ ^^ ❤️</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
