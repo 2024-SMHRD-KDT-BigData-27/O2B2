@@ -69,10 +69,10 @@
         document.getElementById("close").addEventListener(('click'), () => {
             document.getElementById("login-modal").style.display = "none";
         })
-        document.getElementById("login-submit").addEventListener((click), () => {
+        document.getElementById("login-submit").addEventListener(('click'), () => {
             document.getElementById("main.html").style.display = "none";
         })
-        document.getElementById("register-submit").addEventListener((click), ()=>{
+        document.getElementById("register-submit").addEventListener(('click'), ()=>{
             document.getElementById("main.html").style.display = "block";
         })
         
