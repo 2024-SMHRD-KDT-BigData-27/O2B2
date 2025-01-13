@@ -91,37 +91,20 @@
 		</div>
 
 		<span style="width: 670px;">자녀 정보</span>
-		<!-- 		<div class="table-form">
-			<table class="table" width="650" align="center">
 
-				<tr height="50">
-					<td align="left" style="width: 130px;">아이 성별</td>
-					<td>남<input type="radio" name="gender" value="man"> 여<input
-						type="radio" name="gender" value="woman">
-					</td>
-				</tr>
-				<tr height="50">
-					<td align="left">아이 나이</td>
-					<td><input class="register-text" id="child_age" type="number"
-						name="age_max" min="0">살</td>
-				</tr>
-			</table>
-		</div>
-		<input class="register_btn" type="submit" value="회원가입"> -->
-		<h2>자녀 정보</h2>
 		<div id="child-container">
 			<table id="child-entry" class="table table-form" width="650"
 				align="center">
 				<tr height="50">
 					<td align="left" style="width: 130px;">아이 성별</td>
-					<td>남<input type="radio" name="gender1" value="man"> 여<input
-						type="radio" name="gender1" value="woman">
+					<td>남<input type="radio" name="child-gender1" value="man"> 여<input
+						type="radio" name="child-gender1" value="woman">
 					</td>
 				</tr>
 				<tr height="50">
 					<td align="left">아이 나이</td>
-					<td><input class="register-text" id="child_age1" type="number"
-						name="age1" min="0"> 살</td>
+					<td><input class="register-text" id="child-age1" type="date"
+						name="child-age1" min="0"> 살</td>
 				</tr>
 				<tr>
 					<td><button type="button" onclick="addChild();"
@@ -129,45 +112,50 @@
 				</tr>
 			</table>
 		</div>
+		<input type="submit" value="회원가입">
 	</form>
-	<script>
-	function addChild() {
-	    const container = document.getElementById('child-container');
-	    const childCount = container.getElementsByTagName('table').length + 1;
+		<script language="javascript">
+		function addChild() {
+		    // JavaScript에서 childCount를 관리
+		    const container = document.getElementById('child-container');
+		    const childCount = container.getElementsByTagName('table').length + 1;
 
-	    const childTable = document.createElement('table');
-	    childTable.width = "650";
-	    childTable.align = "center";
-	    childTable.classList.add('table');
-	    childTable.classList.add('table-form');
+		    const childTable = document.createElement('table');
+		    childTable.width = "650";
+		    childTable.align = "center";
+		    childTable.classList.add('table');
+		    childTable.classList.add('table-form');
 
-	    childTable.innerHTML = `
-	        <tr height="50">
-	            <td align="left" style="width: 130px;">아이 성별</td>
-	            <td>남<input type="radio" name="gender${childCount}" value="man"> 여<input
-	                type="radio" name="gender${childCount}" value="woman">
-	            </td>
-	        </tr>
-	        <tr height="50">
-	            <td align="left">아이 나이</td>
-	            <td><input class="register-text" id="child_age${childCount}" type="number"
-	                name="age${childCount}" min="0"> 살</td>
-	        </tr>
-	        <tr>
-	            <td><button type="button" class="remove-button" onclick="removeChild(this)">-</button></td>
-	        </tr>
-	    `;
-	    container.appendChild(childTable);
-	}
+		    // 템플릿 문자열로 동적으로 childCount 값 삽입
+		    childTable.innerHTML = `
+		        <tr height="50">
+		            <td align="left" style="width: 130px;">아이 성별</td>
+		            <td>남<input type="radio" name="child-gender\${childCount}" value="man"> 
+		                여<input type="radio" name="child-gender\${childCount}" value="woman">
+		            </td>
+		        </tr>
+		        <tr height="50">
+		            <td align="left">아이 나이</td>
+		            <td><input class="register-text" id="child_age${childCount}" type="date"
+		                name="child-age\${childCount}" min="0"> 살</td>
+		        </tr>
+		        <tr>
+		            <td><button type="button" class="remove-button">-</button></td>
+		        </tr>
+		    `;
+		    container.appendChild(childTable);
+		}
 
-        function removeChild(button) {
-            const childTable = button.closest('table');  // 버튼이 속한 테이블을 찾음
-            if (childTable) {
-                childTable.remove();  // 테이블을 삭제
-            }
+
+
+document.getElementById('child-container').addEventListener('click', (event) => {
+    if (event.target && event.target.classList.contains('remove-button')) {
+        const tableToRemove = event.target.closest('table'); // 클릭된 버튼의 부모 테이블 찾기
+        if (tableToRemove) {
+            tableToRemove.remove(); // 해당 테이블 삭제
         }
-
-    </script>
-</body>
+    }
+});
+</script>
 </body>
 </html>

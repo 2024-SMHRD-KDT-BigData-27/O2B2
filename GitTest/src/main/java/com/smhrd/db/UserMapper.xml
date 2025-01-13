@@ -11,4 +11,8 @@
 	<select id="login" parameterType="com.smhrd.model.userDTO" resultType="com.smhrd.model.userDTO">
 		select * from USER_INFO where ID=#{ID} and PW=#{PW}
 	</select>
+	
+	<insert id="child-join" parameterType="com.smhrd.model.childDTO">
+		insert into CHILDREN_INFO values(CHILD_SEQ.NEXTVAL, #{GENDER}, #{CHILD_BIRTHDATE}, #{PARENT_ID}, sysdate)
+	</insert>
 </mapper>
