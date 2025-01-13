@@ -1,32 +1,93 @@
 @charset "UTF-8";
 
+#form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: center;
+}
 .form-container {
-    max-width: 600px;
+	max-width: 600px;
+	margin: 50px auto;
+	/* background: #ffffff; */
+	padding: 20px 30px;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-text {
+	padding: 5px 10px;
+	margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
+	/* background-color: #eeeeee; */
+	background-color: white; border : none; border-radius : 5px;
+	width: 300px;
+	cursor: text;
+	border-radius: 5px;
+	border: none;
+}
+
+#child_age {
+	width: 30%;
+	padding: 5px;
+	margin: 0 5px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	text-align: center;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+.table-form {
+	background-color: #efefef;
+	border-radius: 8px;
+	width: 650px;
+	margin: 0 auto;
+	padding: 5px 10px;
+}
+
+.table td, .table th, .table tr {
+	border: none;
+}
+
+input[type="button"], input[type="submit"] {
+	cursor: pointer;
+}
+
+.register_btn {
+	background-color: #dddada;
+	color: black;
+	margin-top: 30px;
+	font-weight: 800;
+	padding: 10px 25px;
+	border-radius: 5px;
+}
+
+/* ========================== */
+/* #form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.form-container {
     margin: 50px auto;
-    background: #ffffff;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
+    background-color: #ffffff;
+} */
 
-  input[type="text1"] {
+/* 
+.register-text {
     padding: 5px 10px;
-    margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
-    background-color: #eeeeee;
-    border: none;
+    margin-left: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
     border-radius: 5px;
     width: 300px;
     cursor: text;
-}
-
-.password {
-    padding: 5px 10px;
-    margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
-    background-color: #eeeeee;
-    border: none;
-    border-radius: 5px;
-    width: 300px;
-    cursor: text;
+    text-align: center;
 }
 
 #child_age {
@@ -38,8 +99,41 @@
     text-align: center;
     font-size: 14px;
     box-sizing: border-box;
-  }
-  
-.table {
-	margin-bottom: 50px;
 }
+
+.table-form {
+    background-color: #efefef;
+    border-radius: 8px;
+    width: 650px;
+    margin: 0 auto;
+    padding: 5px 10px;
+}
+
+.table td, .table th, .table tr {
+    border: none;
+}
+*/
+
+#child-container {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	align-items: center;
+}
+.add-button, .remove-button {
+    background-color: #e60023;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.add-button:hover, .remove-button:hover {
+    background-color: #c4001d;
+}
+
+.child-entry {
+    margin-bottom: 15px;
+} 

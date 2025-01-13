@@ -23,7 +23,6 @@
   
   <!-- sql문장이 정리된 xml 파일을 연결하는 태그! -->
   <mappers>
-    <mapper resource="com/smhrd/db/MemberMapper.xml"/>
-    <mapper resource="com/smhrd/db/MessageMapper.xml"/>
+    <mapper resource="com/smhrd/db/UserMapper.xml"/>
   </mappers>
 </configuration>

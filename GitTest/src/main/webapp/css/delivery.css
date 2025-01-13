@@ -10,7 +10,7 @@
     }
     /* ----------------------------------- */
 
-    input[type="text1"] {
+    .delevery-text {
       padding: 5px 10px;
       margin-left: 10px; /* 입력 필드와 버튼 사이 간격 */
       background-color: #eeeeee;
@@ -19,3 +19,76 @@
       width: 300px;
       cursor: text;
   }
+  
+  /* clean 창 팝업 */
+  .clean-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 팝업 창 본체 */
+.clean-popup-content {
+  background-color:#eeeeee;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.clean-popup-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.clean-popup-body {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.clean-popup-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.buy-btn {
+  height: 35px;
+  background-color: #f7cbcb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.clean-btn {
+  height: 35px;
+  margin-left: 20px;
+  background-color: #f7cbcb;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.buy-btn>a{
+  color: black;
+}
+
+.clean-btn>a{
+  color: black;
+}

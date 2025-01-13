@@ -18,7 +18,7 @@
                     <p> 1~4살/ 여아/ 상태 : 상  </p>
                     <span class="price">💰 125,000원</span>
                 </div>
-            </div>
+          </div>
                 <!-- 포스트 2 -->
                 <div class="post">
                     <img src="https://cafe24.poxo.com/ec01/bambeestore/0jJurf5+JqL2mXn6P+LWO2i2uqhk3jgiA9Vbn7wCx0J0wcOlg6NQMdOTOQ3SfR5yCKojWb9XXfkzt/6tbNsaAg==/_/web/product/big/202410/b631ecd820f5befb8b3849884a75c30e.png"/>

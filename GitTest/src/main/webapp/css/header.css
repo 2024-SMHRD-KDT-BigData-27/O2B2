@@ -6,28 +6,25 @@
   font-style: normal;
 }
 
-body {
+body , button {
 
   font-family:  GowunDodum-Regular;
   margin: 0;
   padding: 0;
 }
 
-button {
-    font-family:  GowunDodum-Regular;
-}
 
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fbe3e3;
-  padding: 20px 20px;
+  height : 200px;
 }
 
 .logo {
-  margin-left: 60px;
-  font-size: 40px;
+  margin-left: 180px;
+  font-size: 60px;
   color: #ff6384;
 }
 
@@ -40,10 +37,51 @@ button {
 .search-bar {
   width: 500px;
   padding: 5px;
+  border-radius: 3px;
+}
+
+.logout-button {
+  margin-left: -25px;
+  background-color: #f7cbcb;
+  border: none;
+  padding: 10px 15px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.login-button {
+  background-color: #f7cbcb;
+  border: none;
+  padding: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+.menu {
+    width: 70vw;
+    height: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    
+}
+
+.menu a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #333;
 }
 
 .user-options {
-  margin-right: 50px;
+  margin-right: 200px;
   display: flex;
   align-items: center;
   gap: 40px;
@@ -85,26 +123,6 @@ button {
   text-decoration: none;
   color: #333;
 }
-
-.logout-button {
-    margin-left: -25px;
-    background-color: #f7cbcb;
-    border: none;
-    padding: 10px 15px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.login-button {
-    background-color: #f7cbcb;
-    border: none;
-    padding: 20px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-/* 모달 스타일 */
-/* 모달 배경 */
 .modal {
   display: none; /* 기본적으로 숨김 */
   position: fixed;
@@ -121,7 +139,7 @@ button {
 .modal-content {
   background-color: #fff;
   margin: 10% auto; /* 화면 중앙에 위치 */
-  padding: 20px 20px 60px 20px;
+  padding: 20px;
   border-radius: 10px;
   width: 30%; /* 너비 조정 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -142,38 +160,23 @@ button {
   color: black;
 }
 
-/* 입력 필드 스타일 */
-.login-form > [type="text"],
-.login-form > input[type="password"] {
-  width: 80%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
-}
-
-/* 버튼 스타일 */
 #login-submit {
-  background-color: #f7cbcb;
   border: none;
-  color: white;
-  width: 80%;
-  padding: 10px;
-  margin-top: 20px;
+  color: black;
+  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
-#login-submit:hover {
+.login-submit:hover {
   background-color: #e6b3b3;
 }
 
 /* 회원가입 링크 */
 .register-link {
   display: block;
-  margin-top: 20px;
+  margin-top: 15px;
   color: #ff6384;
   text-decoration: none;
 }
