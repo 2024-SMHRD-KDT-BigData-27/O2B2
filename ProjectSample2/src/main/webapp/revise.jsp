@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,15 +26,13 @@
 		document.form.zipNo.value = zipNo;
 	}
 </script>
-
-<title>register</title>
-<link href="${pageContext.request.contextPath}/css/register.css"
-	rel="stylesheet" type="text/css">
+<title>revise</title>
+<link href="${pageContext.request.contextPath}/css/revise.css" rel="stylesheet" type="text/css">
 </head>
 <body style="overflow: scroll;">
-	<%@include file="category.jsp"%>
-
-	<h1 id="calender-header" align="center">회원가입</h1>
+	<%@include file="category.jsp" %>
+	
+	<h1 id="calender-header" align="center">정보수정</h1>
     <hr class="line">
 
 	<form name="form" id="form" action="JoinService">
@@ -46,18 +44,18 @@
 				</th>
 			</tr> -->
 				<tr height="50">
-					<td align="left">아이디</td>
-					<td><input class="register-text" name="id" type="text"></td>
+					<td align="left">* 아이디</td>
+					<td><input class="register-text1" name="id" type="text" readonly></td>
 				</tr>
 				<tr height="50">
-					<td align="left">비밀번호</td>
-					<td><input name="pw" class="register-text" type="password"
-						maxlength="10"></td>
+					<td align="left">* 비밀번호</td>
+					<td><input name="pw" class="register-text1" type="password"
+						maxlength="10" readonly></td>
 				</tr>
 				<tr height="50">
-					<td align="left">비밀번호확인</td>
-					<td><input class="register-text" type="password"
-						maxlength="10"></td>
+					<td align="left">* 비밀번호확인</td>
+					<td><input class="register-text1" type="password"
+						maxlength="10" readonly></td>
 
 				</tr>
 				<tr height="50">
@@ -93,7 +91,7 @@
 			</table>
 		</div>
 
-		<span style="width: 670px;">자녀 정보</span>
+		<span style="width: 650px; font-weight: 1000;">자녀 정보</span>
 
 		<div id="child-container">
 			<table id="child-entry" class="table table-form" width="650"
@@ -115,9 +113,10 @@
 				</tr>
 			</table>
 		</div>
-		<input class="finish" type="submit" value="회원가입">
+		<input class="finish" type="submit" value="완료">
 	</form>
-		<script language="javascript">
+	
+	<script language="javascript">
 		function addChild() {
 		    // JavaScript에서 childCount를 관리
 		    const container = document.getElementById('child-container');
@@ -160,5 +159,7 @@ document.getElementById('child-container').addEventListener('click', (event) => 
     }
 });
 </script>
+	
+	
 </body>
 </html>

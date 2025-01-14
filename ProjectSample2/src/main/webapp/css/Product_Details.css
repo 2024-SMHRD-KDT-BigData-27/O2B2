@@ -69,10 +69,14 @@ h2, h3 {
 .detail-comment {
     font-size: 18px;
     margin-bottom: 10px;
-    border-bottom: 2px solid #e60023;
+    border-bottom: 2px solid #d5d5d5;
     padding-bottom: 5px;
 }
 
+.recomment {
+	width: 700px;
+	height: 100px;
+}
 
 /* 댓글 섹션 */
 .comment-section {
@@ -99,4 +103,11 @@ h2, h3 {
     gap: 10px; /* 버튼 간격 */
 }
 
-
+.btn3 {
+    margin-left: 640px;
+    margin-top: 10px;
+    background-color: #fbe3e3;
+    color: black;
+    padding: 5px 20px;
+    border-radius: 5px;
+}

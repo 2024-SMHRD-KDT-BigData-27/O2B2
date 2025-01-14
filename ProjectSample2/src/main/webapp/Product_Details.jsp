@@ -24,8 +24,8 @@
                     <li><strong>배송비 : </strong> 무료배송</li>
                 </ul>
                 <div class="product-button">
-                   <a href="#" class="btn1"><button>구매하기</button></a>
-                   <a href="#" class="btn2"><button>찜❤</button></a>
+                   <a href="cleandelivery.jsp" class="btn1"><button>구매하기</button></a>
+                   <a href="wishlist.jsp" class="btn2"><button>찜❤</button></a>
                 </div>
             </div>
         </div>
@@ -45,8 +45,8 @@
         <div class="comment-section">
             <h3 class="comment">💬 댓글</h3>
             <form action="addComment" method="post">
-                <textarea name="comment" placeholder="댓글을 입력하세요..." required></textarea>
-                <button type="submit" class="btn1">댓글 작성</button>
+                <input class="recomment" name="comment" placeholder="댓글을 입력하세요..."> <!-- required -->
+                <br><button type="submit" class="btn3">등록</button>
             </form>
             <div class="comment-list">
                 <p><strong>준원맘:</strong> 3kg 여자아이도 가능할까요? ^^*</p>

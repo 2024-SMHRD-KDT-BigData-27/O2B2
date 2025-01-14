@@ -1,4 +1,4 @@
-<%@page import="com.project.model.userDTO"%>
+<%@ page import="com.project.model.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,17 +19,17 @@
                 <button class="search"> 검색 🔍</button>
             </div>
             <div class="user-options">
-                
-           <% userDTO info = (userDTO)session.getAttribute("info");
+            <% Object info = session.getAttribute("info");
            		if(info == null){
+           		
            %>
+          
            <div>
                 <button class="login-button" id="login-button">로그인/회원가입</button>
             </div>
-            <%} else { %>
+           <%} else { %>
 
-
-				<a href="#">💌 찜 목록</a>
+				<a href="wishlist.jsp">💌 찜 목록</a>
 				<div class="dropdown">
                     <button class="dropdown-button">마이페이지</button>
                     <div class="dropdown-content">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <a href="LogoutService"><button class="logout-button">로그아웃</button></a>
-                <% } %>
+               <% } %>
             </div>
         </div>
 
