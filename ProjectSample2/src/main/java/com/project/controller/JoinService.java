@@ -2,7 +2,6 @@ package com.project.controller;
 
 import java.io.IOException;
 import java.util.Enumeration;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -76,12 +75,6 @@ public class JoinService extends HttpServlet {
 		} else {
 			response.sendRedirect("register.jsp");			
 		}
-	}
-
-
-	private childDTO childDTO() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

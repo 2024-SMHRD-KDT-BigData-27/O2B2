@@ -10,7 +10,9 @@
 <body>
 		<%@include file="header.jsp"%>
 	        <nav class="menu">
-                <button class="dropdown-button"><img src="./img/menu.png" width="20px" height="20px"></button>
+                <div class="dropdown">
+                <button class="dropdown-button">
+                <img src="./img/menu.png" width="20px" height="20px"></button>
                 <div class="dropdown-content">
                 		<a href="#">상의</a>
                         <a href="#">하의</a>
@@ -36,6 +38,7 @@
                         <a href="#">아기의자</a>
                         <a href="#">보행기</a>
                         <a href="#">헬멧</a>
+          	</div>
           	</div>
             <a href="#" class="dropdown">나만의 상품 💗</a>
            

@@ -4,17 +4,23 @@
     width: 80%;
     max-width: 1200px;
     margin: 20px auto;
-    background: #fff;
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 상품 섹션 */
-.product {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+/* 상품 테이블 */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.product-image-cell {
+    width: 300px;
+    text-align: center;
+    vertical-align: top;
+    padding: 20px;
 }
 
 .product-image img {
@@ -23,15 +29,45 @@
     border-radius: 10px;
 }
 
-.product-info {
+.product-info-cell {
+    vertical-align: top;
+    padding: 20px;
+}
+
+.product-info-table {
+    width: 100%;
     font-size: 19px;
     font-weight: bold;
 }
 
-.product-info input{
-	height: 20px;
+.product-info-table td {
+    padding: 10px 0;
 }
 
+.product-info-table input {
+    height: 35px;
+    width: 300px;
+    background-color: rgb(255 255 255);
+    padding: 0 10px;
+    border-width: 0 0 1px;
+}
+
+
+.product-info-table input:focus {
+    outline: 2px solid #e60023;
+}
+
+/* #title {
+    height: 60px;
+} */
+
+.product-notes {
+    color: darkgray;
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* 공통 스타일 */
 .product-title {
     font-size: 24px;
     font-weight: bold;
@@ -56,10 +92,15 @@
     font-size: 14px;
 }
 
+.product-button button:hover {
+    background: #c7001a;
+}
+
+
 /* 상세 입력 섹션 */
 .details {
     margin-top: 30px;
-    padding: 20px 430px;
+    padding: 20px 320px;
     border: 1px solid #ddd;
     border-radius: 8px;
 }
@@ -72,9 +113,8 @@
 }
 
 .details input, 
-.details textarea, 
 .details select {
-    width: 100%;
+    width: 600px;
     padding: 10px;
     margin-bottom: 15px;
     font-size: 14px;
@@ -83,8 +123,8 @@
     box-sizing: border-box;
 }
 
-textarea {
-    resize: vertical;
+#review {
+	height : 150px;
 }
 
 .btn1 {
@@ -98,4 +138,10 @@ textarea {
 
 .btn1:hover {
     background-color: #c0001c;
+}
+
+.con{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }

@@ -1,5 +1,69 @@
 @charset "UTF-8";
 
+/* 팝업 창 배경 (어두운 투명 레이어) */
+  .clean-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 팝업 창 본체 */
+  .clean-popup-content {
+  background-color: #ffffff;
+  width: 80%;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.clean-popup-header {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.clean-popup-body {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.clean-popup-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.buy-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right:10px;
+}
+
+.clean-btn {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}  
+
+
 #feed {
     display: flex;
     flex-wrap: wrap;

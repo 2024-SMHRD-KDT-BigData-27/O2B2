@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+.line {
+  width: 75%;
+  border: 0;
+  height: 2px;
+  background-color: #cfcfcf;
+  margin-bottom: 50px;
+}
+
+#calender-header {
+  font-size: 50px;
+  margin-top: 50px
+}
+
+.fc .fc-daygrid-day {
+    background-color: #ffffff;
+  }
+
+  /* 오늘 날짜 배경 색상 */
+  .fc .fc-day-today {
+    background-color: #fafae9; /* 연한 노란색 */
+  }
+  
+#calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color:#fbe3e3; /* 배경 */
+    border-radius: 8px; /* 둥근 모서리 (선택 사항) */
+    padding: 30px; /* 내부 여백 (선택 사항) */
+  }
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 13px;
+  }
+
+    #memoModal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+  }
+
+  #memoModal h3 {
+    margin-top: 0;
+  }
+
+  #memoModal textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  #memoModal button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #5b7d9e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  #memoModal button:hover {
+    background-color: #5c5c5c;
+  }
+
+  #closeModal {
+    background-color: #8d8d8d;
+  }
+
+  #closeModal:hover {
+    background-color: #8d8d8d;
+  }

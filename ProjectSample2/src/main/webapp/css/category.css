@@ -1,66 +1,86 @@
-
-@charset "UTF-8";
+/* 전체 메뉴 스타일 */
 .menu {
-    width: 70vw;
-    height: 50px;
     display: flex;
-    justify-content: space-between;
-    justify-items: center;
-    margin: 0 auto;
-    margin-top : 20px;
-}
-
-a {
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+  }
+  
+  /* 드롭다운 버튼 스타일 */
+  .dropdown-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+  }
+  
+  /* 기본 드롭다운 메뉴 스타일 */
+  .dropdown-content {
+    display: none; /* 기본적으로 숨김 */
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 160px;
+    z-index: 1;
+    padding: 10px 0;
+    border-radius: 4px;
+  }
+  
+  /* 드롭다운 항목 링크 스타일 */
+  .dropdown-content a {
     text-decoration: none;
-    color: #333; 
-}
-
-.menu a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #333;
-}
-
-.dropdown {
-  position: relative;
-}
-
-.dropdown-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  color: #333;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: white;
-  border: 1px solid #ccc;
-  top: 30px;
-  left:-40px;
-  width: 110px;
-  padding: 10px;
-  line-height: 1.5;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content a {
-  display: block;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #333;
-}
-.line {
-  width: 75%;
-  border: 0;
-  height: 2px;
-  background-color: #cfcfcf;
-}
+    color: #333;
+    padding: 10px 16px;
+    display: block;
+    transition: background 0.3s ease;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* 드롭다운 활성화 */
+  .menu .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* 드롭다운 컨테이너 */
+  .dropdown {
+    position: relative;
+    margin-right: 15px;
+  }
+  
+  /* "전체메뉴" 및 "게시판" 링크 스타일 */
+  .menu > a {
+    text-decoration: none;
+    color: #333;
+    padding: 0 10px;
+    font-size: 16px;
+    margin-left: auto;
+  }
+  
+  /* 하단 구분선 스타일 */
+  .line {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .menu {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .dropdown-content {
+      position: static;
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+  

@@ -6,6 +6,15 @@
 	gap: 15px;
 	align-items: center;
 }
+.line {
+  width: 75%;
+  border: 0;
+  height: 2px;
+  background-color: #cfcfcf;
+  margin-bottom: 50px;
+}
+
+
 .form-container {
 	max-width: 600px;
 	margin: 50px auto;
@@ -51,6 +60,11 @@
 
 input[type="button"], input[type="submit"] {
 	cursor: pointer;
+}
+.finish {
+	padding: 7px 20px;
+	margin-top:20px;
+	margin-bottom : 20px;
 }
 
 .register_btn {

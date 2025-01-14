@@ -8,10 +8,43 @@
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
 	<%@include file="search.jsp" %>
+	
+    <script>
+        // 페이지 로드 시 팝업 열기
+        window.onload = function () {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+        };
+
+        // 팝업 닫기 기능
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+    </script>
+	<div class="clean-popup-overlay" id="popup">
+        <div class="clean-popup-content">
+            <div class="clean-popup-header">✔ 구매전 확인해주세요.</div>
+            <div class="clean-popup-body">
+                <br>
+                위생 케어 서비스 선택시 전문 업체를 통해 소독 및 검수 후 배송됩니다.<br>
+                <br>
+                • 선택시 주문 금액에 따라 추가금 발생할 수 있습니다.<br>
+                • 배송일 3~5일 지연 될 수 있습니다.<br>
+                　(제품에 따라 금액 및 배송일 변동 가능)<br>
+                <br>
+            </div>
+            <div class="clean-popup-footer">
+                <a href="#"><button class="buy-btn" onclick="closePopup()">구매하기</button></a>
+                <a href="#"><button class="clean-btn" onclick="closePopup()">위생서비스</button></a>
+                
+                </div>
+            </div>
+        </div>
+
 	 <div id="feed">
-            <!-- 포스트 1 --> 
+            <!-- 포스트 1 -->
             <div class="post">
                 <img src="https://marron-glace-paris.com/cdn/shop/files/770106_FACO7_9758_001_100_0000_Light-Gucci-Stroller_2048x.jpg?v=1709606854"/>
                 <div class="content">
