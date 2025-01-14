@@ -24,5 +24,6 @@
   <!-- sql문장이 정리된 xml 파일을 연결하는 태그! -->
   <mappers>
     <mapper resource="com/project/db/UserMapper.xml"/>
+    <mapper resource="com/project/db/ProductMapper.xml"/>
   </mappers>
 </configuration>

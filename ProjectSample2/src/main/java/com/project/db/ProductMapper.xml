@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.db.ProductMapper">
+	<insert id="regist" parameterType="com.project.model.ProductDTO">
+		insert into PRODUCT_INFO values(PRO_SEQ.NEXTVAL, #{PROD_NAME}, #{PROD_IMG}, #{PROD_PRICE}, #{PROD_DELIVERY_FEE},
+		TO_DATE(#{BUY_DATE} || '-01', 'YYYY-MM-DD'), #{USE_PERIOD}, #{PROD_STATE}, #{PROD_REVIEW}, #{TO_GENDER}, #{MIN_AGE}, #{MAX_AGE}, 'N', #{SELLER_ID}, #{PROD_CATEGORY})
+	</insert>
+</mapper>
