@@ -5,18 +5,18 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.project.db.SqlSessionManager;
 
-public class childDAO {
+public class WishDAO {
 
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactory();
 
-	public int join(childDTO child_dto) {
+	public void add(WishDTO dto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-		int cnt = sqlSession.insert("child-join", child_dto);
+		int cnt = sqlSession.insert("add-wish", dto);
 		sqlSession.close();
 		
-		return cnt;
 
 	}
 
+	
 }

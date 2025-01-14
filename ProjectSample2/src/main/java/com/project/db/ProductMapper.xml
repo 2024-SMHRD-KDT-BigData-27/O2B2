@@ -5,4 +5,9 @@
 		insert into PRODUCT_INFO values(PRO_SEQ.NEXTVAL, #{PROD_NAME}, #{PROD_IMG}, #{PROD_PRICE}, #{PROD_DELIVERY_FEE},
 		TO_DATE(#{BUY_DATE} || '-01', 'YYYY-MM-DD'), #{USE_PERIOD}, #{PROD_STATE}, #{PROD_REVIEW}, #{TO_GENDER}, #{MIN_AGE}, #{MAX_AGE}, 'N', #{SELLER_ID}, #{PROD_CATEGORY})
 	</insert>
+	
+	<insert id="add" parameterType="com.project.model.WishDTO">
+		insert into WISH_LIST values(WISH_SEQ, #{PRODUCT_ID}, #{ID}, sysdate)
+	</insert>
+	
 </mapper>
