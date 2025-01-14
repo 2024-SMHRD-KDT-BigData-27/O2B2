@@ -8,6 +8,7 @@
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 	<%@include file="search.jsp" %>
 	 <div id="feed">
             <!-- 포스트 1 --> 
