@@ -6,8 +6,8 @@
 		TO_DATE(#{BUY_DATE} || '-01', 'YYYY-MM-DD'), #{USE_PERIOD}, #{PROD_STATE}, #{PROD_REVIEW}, #{TO_GENDER}, #{MIN_AGE}, #{MAX_AGE}, 'N', #{SELLER_ID}, #{PROD_CATEGORY})
 	</insert>
 	
-	<insert id="add" parameterType="com.project.model.WishDTO">
-		insert into WISH_LIST values(WISH_SEQ, #{PRODUCT_ID}, #{ID}, sysdate)
+	<insert id="add-wish" parameterType="com.project.model.WishDTO">
+		insert into WISH_LIST values(WISH_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, sysdate)
 	</insert>
 	
 	<select id="pro-list" parameterType="String" resultType="com.project.model.ProductDTO">
@@ -16,5 +16,9 @@
 	
 	<select id="pro-detail" parameterType="String" resultType="com.project.model.ProductDTO">
 		select * from PRODUCT_INFO where PROD_ID = #{id}
+	</select>
+	
+	<select id="wish-list" parameterType="String" resultType="com.project.model.WishDTO">
+		select * from WISH_LIST where ID = #{id}
 	</select>
 </mapper>

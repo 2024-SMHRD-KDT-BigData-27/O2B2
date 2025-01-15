@@ -33,6 +33,8 @@ public class AddWishListService extends HttpServlet {
 		WishDAO dao = new WishDAO(); 
 		
 		dao.add(dto);
+		
+		response.sendRedirect("Product_Details.jsp?p_id="+p_id);
 	
 	}
 
