@@ -17,6 +17,6 @@
 	</insert>
 	
 	<select id="find-name" parameterType="String" resultType="String">
-		select ID from USER_INFO where ID=#{id}
+		select NAME from USER_INFO where ID=#{id}
 	</select>
 </mapper>
