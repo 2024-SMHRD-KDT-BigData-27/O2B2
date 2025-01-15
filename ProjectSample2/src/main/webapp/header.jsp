@@ -13,7 +13,7 @@
 		<!-- 헤더 시작 -->
 		
         <div class="header-container">
-            <h1 class="logo">👶🏻 PINKBEBE</h1>
+            <a href="main.jsp"><h1 class="logo">👶🏻 PINKBEBE</h1></a>
             <div>
                 <input type="text" class="search-bar" placeholder="Search">
                 <button class="search"> 검색 🔍</button>
@@ -33,7 +33,7 @@
 				<div class="dropdown">
                     <button class="dropdown-button">마이페이지</button>
                     <div class="dropdown-content">
-                        <a href="#">회원정보 변경</a>
+                        <a href="revise.jsp">회원정보 변경</a>
                         <a href="buylist.jsp">구매 내역</a>
                         <a href="selllist.jsp">판매 내역</a>
                         <a href="wishlist.jsp">찜 목록 페이지</a>

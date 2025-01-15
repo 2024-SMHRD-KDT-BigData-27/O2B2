@@ -10,4 +10,11 @@
 		insert into WISH_LIST values(WISH_SEQ, #{PRODUCT_ID}, #{ID}, sysdate)
 	</insert>
 	
+	<select id="pro-list" parameterType="String" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SELLER_ID = #{id}
+	</select>
+	
+	<select id="pro-detail" parameterType="String" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where PROD_ID = #{id}
+	</select>
 </mapper>

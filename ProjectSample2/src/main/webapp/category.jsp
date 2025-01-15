@@ -13,7 +13,7 @@
                 <div class="dropdown">
                 <button class="dropdown-button">
                 <img src="./img/menu.png" width="20px" height="20px"></button>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="total">
                 		<a href="#">상의</a>
                         <a href="#">하의</a>
                         <a href="#">상/하의 세트</a>
@@ -89,8 +89,8 @@
             <div class="dropdown">
                 <button class="dropdown-button">도서</button>
             </div>
-            <a href="#">전체메뉴</a>
-            <a href="#">게시판</a>
+            <a href="#">머하지 ?</a>
+            <a href="board.jsp">게시판</a>
         </nav>
         <hr class="line">
 </body>

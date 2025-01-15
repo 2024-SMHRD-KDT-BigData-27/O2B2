@@ -1,5 +1,7 @@
 package com.project.model;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -17,5 +19,24 @@ public class ProductDAO {
 		sqlSession.close();
 		return cnt;
 	}
+	
+	public ArrayList<ProductDTO> proList(String id){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList)sqlSession.selectList("pro-list", id);
+		
+		sqlSession.close();
+		
+		return list;
+	}
 
+	public ProductDTO proDetail(String id){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ProductDTO detail = (ProductDTO)sqlSession.selectOne("pro-detail", id);
+		
+		sqlSession.close();
+		
+		return detail;
+	}
 }

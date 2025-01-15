@@ -67,8 +67,8 @@
 #feed {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    padding: 20px 280px;
+    gap: 35px;
+    padding: 20px 300px;
     justify-content: center;
 }
 

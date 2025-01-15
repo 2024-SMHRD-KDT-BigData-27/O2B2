@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,46 +10,33 @@
 </head>
 <body>
 	<%@include file="category.jsp" %>
+	<% 
+	userDTO info1 = (userDTO)session.getAttribute("info");
+	ProductDAO dao = new ProductDAO();
+	ArrayList<ProductDTO> list = (ArrayList)dao.proList(info1.getID());
+	%>
  <h2 class="page-title">판매내역</h2>
         <div class="purchase-container">
           <!-- 헤더 행 -->
           <div class="purchase-header">
-            <div class="column">주문번호</div>
+            <div class="column">판매상태</div>
             <div class="column">IMAGE</div>
             <div class="column">ITEM</div>
             <div class="column">PRICE</div>
           </div>
-           <!-- 데이터 행 -->
-           <div class="purchase-row">
-            <div class="column">2021. 12. 6<br>9775170</div>
-            <div class="column"><img src="image1.jpg" alt="상품 이미지"></div>
-            <div class="column">블랙 앤 더블 롱 앰 매쉬<br>ALLOVER LOGO TRIPLE S 스니커즈</div>
-            <div class="column">30,000원</div>
-          </div>
-          <div class="purchase-row">
-            <div class="column">2021. 12. 6<br>9775170</div>
-            <div class="column"><img src="image2.jpg" alt="상품 이미지"></div>
-            <div class="column">DENIM PANTS</div>
-            <div class="column">55,500원</div>
-          </div>
-          <div class="purchase-row">
-            <div class="column">2021. 12. 6<br>9775170</div>
-            <div class="column"><img src="image3.jpg" alt="상품 이미지"></div>
-            <div class="column">TRENCH COAT</div>
-            <div class="column">120,500원</div>
-          </div>
-          <div class="purchase-row">
-            <div class="column">2021. 12. 6<br>9775170</div>
-            <div class="column"><img src="image4.jpg" alt="상품 이미지"></div>
-            <div class="column">블루 코트 드레스 WRAP CARCOAT<br>BALENCIAGA</div>
-            <div class="column">13,000원</div>
-          </div>
-          <div class="purchase-row">
-            <div class="column">2021. 12. 6<br>9775170</div>
-            <div class="column"><img src="image4.jpg" alt="상품 이미지"></div>
-            <div class="column">0~36개월 카시트 <br>DAIICHI</div>
-            <div class="column">130,000원</div>
-          </div>
+          <% for(ProductDTO product : list){ %>
+          	<div class="purchase-row">
+				<% if(product.getSOLD_YN().equals("N")){ %>          	
+          			<div class="column">판매중</div>
+          		<% } else{ %>
+          			<div class="column">판매완료</div>
+          		<% }%>
+          		<div class="column"><img src="<%= product.getPROD_IMG() %>" alt="상품 이미지"></div>
+          		<div class="column"><%= product.getPROD_NAME() %></div>
+          		<div class="column"><%= product.getPROD_PRICE() %>원</div>
+          	</div>
+          <% } %>
+          
         </div>
 </body>
 </html>
