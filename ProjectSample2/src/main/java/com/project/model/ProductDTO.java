@@ -56,5 +56,5 @@ public class ProductDTO {
 
     // 제품 카테고리 
     private String PROD_CATEGORY;
-
+    
 }
