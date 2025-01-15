@@ -39,4 +39,14 @@ public class ProductDAO {
 		
 		return detail;
 	}
+	
+	public ArrayList<ProductDTO> proMain(){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList)sqlSession.selectList("pro-main");
+		
+		sqlSession.close();
+		
+		return list;
+	}
 }
