@@ -11,6 +11,7 @@ body {
 
 .filter-container {
   position: fixed;
+  bottom: 90px;
   margin-left: 20px;
   background: #fff;
   padding: 20px;

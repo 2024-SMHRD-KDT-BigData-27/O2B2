@@ -9,6 +9,15 @@
 </head>
 <body>
 		<%@include file="header.jsp"%>
+		    <div class="banner-container">
+        <img class="banner-image"
+            src="https://appservice-img.s3.ap-northeast-2.amazonaws.com/story/seoulventures31/ko/detail/12727_top-view-postpartum-box-still-life.jpg"
+            alt="Pinkbebe 배너 이미지">
+        <div class="banner-text">
+            <h2>PINKBEBE와 함께 특별한 순간을 만들어보세요!</h2>
+            <p><strong>우리 아이를 위한 최고의 선택, PINKBEBE! 지금 다양한 상품을 확인해보세요.</strong></p>
+        </div>
+    </div>
 	        <nav class="menu">
                 <div class="dropdown">
                 <button class="dropdown-button">

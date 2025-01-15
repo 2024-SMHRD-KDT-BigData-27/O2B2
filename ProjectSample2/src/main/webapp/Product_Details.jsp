@@ -27,15 +27,16 @@
 			</div>
 			<div class="product-info">
 				<h2 class="product-title"><%= detail.getPROD_NAME() %></h2>
-				<ul>
-				<li><strong>판매가격 : </strong><span class="price"><%= detail.getPROD_PRICE() %></span></li>
-				</ul>
-				<ul>
-					<li><strong>배송비 : </strong><%= detail.getPROD_DELIVERY_FEE() %></li>
-				</ul>
+				<h2>판매가격 : <span class="price"><%= detail.getPROD_PRICE() %>원</span></h2>
+				
+				<hr class="line">					
+				
+					<strong>배송비 : </strong><%= detail.getPROD_DELIVERY_FEE() %>원
+					<br><br><strong>상품상태 : </strong><%= detail.getPROD_STATE() %>
+				
 				<div class="product-button">
+					<a href="AddWishListService?p_id=<%= request.getParameter("p_id") %>" class="btn2"><button>❤찜</button></a>
 					<a href="cleandelivery.jsp" class="btn1"><button>구매하기</button></a>
-					<a href="wishlist.jsp" class="btn2"><button>찜❤</button></a>
 				</div>
 			</div>
 		</div>

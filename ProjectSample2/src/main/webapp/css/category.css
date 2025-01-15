@@ -1,11 +1,47 @@
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.banner-image {
+  opacity: 1; 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.banner-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.banner-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.banner-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+
 /* 전체 메뉴 스타일 */
 .menu {
+	font-family:  GowunDodum-Regular;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    background-color: #f8f9fa;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
     position: relative;
   }
   
