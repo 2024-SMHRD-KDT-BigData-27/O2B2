@@ -9,7 +9,7 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
-	<%@include file="search.jsp"%>
+	<%@include file="category.jsp"%>
 
 	<div class="cart-container">
 		<h1>장바구니</h1>

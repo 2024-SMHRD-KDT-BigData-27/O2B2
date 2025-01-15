@@ -85,7 +85,7 @@
 				<img src="<%=pro.getPROD_IMG()%>" />
 				<div class="content">
 					<h3><%=pro.getPROD_NAME()%></h3>
-					<p><%=pro.getMIN_AGE()%>~<%=pro.getMAX_AGE()%>살/ 성별 :
+					<p><%=pro.getMIN_AGE()%>~<%=pro.getMAX_AGE()%>개월/ 성별 :
 						<%
 					if (pro.getTO_GENDER().equals("M")) {
 						out.print("남아");
@@ -97,7 +97,7 @@
 					%>
 						/ 상태 :
 						<%=pro.getPROD_STATE()%></p>
-					<span class="price">💰 <%=pro.getPROD_PRICE()%>원
+					<span class="price"> <%=pro.getPROD_PRICE()%>원
 					</span>
 				</div>
 			</div>
