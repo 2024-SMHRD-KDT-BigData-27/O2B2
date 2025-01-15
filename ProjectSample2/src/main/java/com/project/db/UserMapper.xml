@@ -15,4 +15,8 @@
 	<insert id="child-join" parameterType="com.project.model.childDTO">
 		insert into CHILDREN_INFO values(CHILD_SEQ.NEXTVAL, #{GENDER}, #{CHILD_BIRTHDATE}, #{PARENT_ID}, sysdate)
 	</insert>
+	
+	<select id="find-name" parameterType="String" resultType="String">
+		select ID from USER_INFO where ID=#{id}
+	</select>
 </mapper>
