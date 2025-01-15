@@ -51,7 +51,7 @@
 				<h2>로그인</h2>
 				<form class="login-form" action="LoginService">
 					<label for="username">아이디</label> <br> 
-					<input type="text" id="username" name="id" placeholder="Name"> <br>
+					<input type="text" id="username" name="id" placeholder="id"> <br>
 					<label for="password">비밀번호</label> <br>
 					<input type="password" id="password" name="pw" placeholder="Password"> <br>
 					<button type="submit" id="login-submit" class=" -submit">로그인</button>

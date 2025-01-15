@@ -6,12 +6,14 @@
   font-style: normal;
 }
 
+body {
+	padding-bottom : 400px; 
+}
 
 header , button , body {
 
   font-family:  GowunDodum-Regular;
-  margin: 0;
-  padding: 0;
+  
 }
 
 
@@ -39,6 +41,7 @@ header , button , body {
   width: 500px;
   padding: 5px;
   border-radius: 3px;
+  border : none;
 }
 
 .logout-button {
@@ -56,6 +59,7 @@ header , button , body {
   padding: 20px;
   font-size: 15px;
   cursor: pointer;
+  border-radius: 3px;
 }
 
 
@@ -151,7 +155,7 @@ a {
 /* 닫기 버튼 */
 .close {
   color: #aaa;
-  float: right;
+  margin-left: 400px;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -173,6 +177,10 @@ a {
 
 .login-submit:hover {
   background-color: #e6b3b3;
+}
+
+.login-form input {
+	width : 250px;
 }
 
 /* 회원가입 링크 */

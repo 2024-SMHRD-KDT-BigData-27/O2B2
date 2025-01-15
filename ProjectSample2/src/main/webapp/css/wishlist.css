@@ -1,4 +1,8 @@
 @charset "UTF-8";
+body {
+	padding-bottom : 200px; 
+}
+
 .page-title {
     text-align: center;
     font-size: 28px;
