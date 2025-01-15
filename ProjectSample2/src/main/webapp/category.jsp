@@ -52,7 +52,17 @@
             <a href="#" class="dropdown">나만의 상품 💗</a>
            
             <div class="dropdown">
-                <button class="dropdown-button">유아의류</button>
+                <button class="dropdown-button">여아의류</button>
+                <div class="dropdown-content">
+                    <a href="#">상의</a>
+                    <a href="#">하의</a>
+                    <a href="#">상/하의 세트</a>
+                    <a href="#">실내복</a>
+                    <a href="#">바디수트</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-button">남아의류</button>
                 <div class="dropdown-content">
                     <a href="#">상의</a>
                     <a href="#">하의</a>
@@ -98,7 +108,6 @@
             <div class="dropdown">
                 <button class="dropdown-button">도서</button>
             </div>
-            <a href="#">머하지 ?</a>
             <a href="board.jsp">게시판</a>
         </nav>
         <hr class="line">

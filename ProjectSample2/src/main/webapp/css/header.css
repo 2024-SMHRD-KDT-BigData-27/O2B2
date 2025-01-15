@@ -6,11 +6,20 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
+	font-family: 'GoyangIlsan';
 	padding-bottom : 400px; 
 }
 
-header , button , body {
+header , button,
+.banner-text {
 
   font-family:  GowunDodum-Regular;
   
@@ -139,24 +148,26 @@ a {
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* 더 깊은 그림자 */
 }
 
 /* 모달 내용 */
 .modal-content {
-  background-color: #fff;
+  background-color: #ffffffe3;
   margin: 10% auto; /* 화면 중앙에 위치 */
-  padding: 20px;
-  border-radius: 10px;
-  width: 30%; /* 너비 조정 */
+  padding: 40px 18px;
+  border-radius: 5px;
+  width: 23%; /* 너비 조정 */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
 }
 
 /* 닫기 버튼 */
 .close {
-  color: #aaa;
-  margin-left: 400px;
-  font-size: 28px;
+  margin-top:-35px;
+  color: #838383;
+  float: right;
+  font-size: 25px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -167,30 +178,60 @@ a {
 }
 
 #login-submit {
+  display:flex;
+  text-align: center;
+  align-items:center;
+  justify-content:center;
+  margin: 0 auto;
+  margin-top: 10px;
+  width:210px;
+  height:30px;
   border: none;
-  color: black;
+  color: rgb(252, 252, 252);
+  background-color: #000000;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
 }
 
-.login-submit:hover {
-  background-color: #e6b3b3;
-}
-
-.login-form input {
-	width : 250px;
-}
-
 /* 회원가입 링크 */
 .register-link {
-  display: block;
-  margin-top: 15px;
-  color: #ff6384;
-  text-decoration: none;
+  display:flex;
+  text-align: center;
+  align-items:center;
+  justify-content:center;
+  margin: 0 auto;
+  margin-top: 10px;
+  width:170px;
+  height:10px;
+  border: none;
+  color: rgb(26, 25, 25);
+  background-color: #b9b9b9;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .register-link:hover {
   text-decoration: underline;
+}
+
+.login-input{
+  border-radius: 5px;
+  height: 20px;
+  width:200px;
+  margin-bottom: 25px;
+}
+
+.login-label{
+  text-align: left;
+  margin-bottom: -20px;
+  margin-left: 115px;
+  display: block;
+}
+
+.login-header{
+  margin-top: -10px;
 }

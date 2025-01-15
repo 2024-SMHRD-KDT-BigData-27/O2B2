@@ -17,7 +17,7 @@ ArrayList<WishDTO> list = dao.wishList(info1.getID());
 
 %>
 	<%@include file="category.jsp" %>
-<h2 class="page-title">📩❤️찜 목록</h2>
+<h2 class="page-title">❤️ 찜 목록</h2>
         <div class="wishlist-container">
           <!-- 상품 카드 -->
           <% 
@@ -32,7 +32,7 @@ ArrayList<WishDTO> list = dao.wishList(info1.getID());
             <img src="<%= pro.getPROD_IMG() %>" alt="상품 이미지">
             <h3 class="product-title"><%= pro.getPROD_NAME() %></h3>
             <p class="product-price"><%= pro.getPROD_PRICE() %>원</p>
-            <p class="product-date"><%= item.getCREATE_DT() %>3일 전 ❤️</p>
+            <p class="product-date"><%= item.getCREATE_DT() %> ❤️</p>
           </div>
           </a>
           <% } %>

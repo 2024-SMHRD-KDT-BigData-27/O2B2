@@ -82,9 +82,9 @@
 }
 
 .post > img {
-    width: 20px;
-    height: 20px;
-    padding: 30px;
+    width: 200px;
+    height: 200px;
+    padding: 0px;
     object-fit: contain;
 }
 
