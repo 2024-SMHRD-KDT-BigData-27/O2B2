@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,6 +15,7 @@
 	<%
 	ProductDAO dao = new ProductDAO();
 	ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
+	System.out.print(detail);
 	%>
 
 
@@ -69,19 +71,35 @@
 		<!-- 댓글 입력 및 출력 -->
 		<div class="comment-section">
 			<h3 class="comment">💬 댓글</h3>
-			<form action="addComment" method="post">
+			<form action="AddProductCommentService?p_id=<%= request.getParameter("p_id")%>" method="post">
 				<input class="recomment" name="comment" placeholder="댓글을 입력하세요...">
 				<!-- required -->
 				<br>
-				<button type="submit" class="btn3">등록</button>
+				<input type="submit" class="btn3">
 			</form>
 			<div class="comment-list">
+				<%
+				ProductCommentDAO cmt_dao = new ProductCommentDAO();
+				userDAO user_dao = new userDAO();
+				
+				ArrayList<ProductCommentDTO> list =  cmt_dao.readComment(request.getParameter("p_id"));
+				
+				String name = null;
+				for(ProductCommentDTO comment : list){
+					name = user_dao.findUserName(comment.getID());
+					
+				%>
+					<p>
+						<strong><%= name %></strong> <%= comment.getCOMMENTS() %>
+					</p>
+				<% } %>
+			<!-- 
 				<p>
 					<strong>준원맘:</strong> 3kg 여자아이도 가능할까요? ^^*
 				</p>
 				<p>
 					↳ <strong>가영맘:</strong> 네! 가능합니다 ~ ^^ ❤️
-				</p>
+				</p> -->
 			</div>
 		</div>
 	</div>

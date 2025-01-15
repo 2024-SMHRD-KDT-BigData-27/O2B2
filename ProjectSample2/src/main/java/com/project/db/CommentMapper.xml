@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.project.db.CommentMapper">
+	<insert id="add-comment" parameterType="com.project.model.ProductCommentDTO">
+		insert into PRODUCT_COMMENT_INFO values(PRO_CMT_SEQ.NEXTVAL, #{PROD_ID}, #{COMMENTS}, sysdate, #{ID}, Null)
+	</insert>
+	
+	<select id="select-comment" parameterType="String" resultType="com.project.model.ProductCommentDTO">
+		select * from PRODUCT_COMMENT_INFO where PROD_ID = #{p_id} order by CREATE_DT
+	</select>
+</mapper>

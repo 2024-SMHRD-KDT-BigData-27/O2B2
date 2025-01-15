@@ -34,5 +34,15 @@ public class userDAO {
 		
 		return info;
 	}
+	
+	public String findUserName(String id) {
+
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		String name = sqlSession.selectOne("find-name", id);
+		sqlSession.close();
+		
+		return name;
+	}
 
 }

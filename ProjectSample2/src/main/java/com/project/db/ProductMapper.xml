@@ -23,6 +23,6 @@
 	</select>
 	
 	<select id="pro-main" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SOLD_YN = 'N'
+		select * from PRODUCT_INFO where SOLD_YN = 'N' order by PROD_ID DESC
 	</select>
 </mapper>
