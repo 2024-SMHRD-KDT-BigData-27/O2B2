@@ -13,9 +13,8 @@ h2, h3 {
     color: #333;
 }
 
-.line {
+.detail_line {
 	width: 100%;
-    height: 1px;
     background-color: #cfcfcf;
 }
 
@@ -51,27 +50,32 @@ h2, h3 {
 
 .product-button button {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 50px;
+    padding: 10px 20px;
     background: #e60023;
     color: #fff;
     border: none;
     border-radius: 1px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .btn1 button {
-	background: #ff0025;
+	background: #c1c1c1;
+	width: 140px;
 }
 
 .btn2 button {
-	background: #ff0000;
-    width: 165px;
+	background: #ff8f8f;  
+	width: 140px;
+}
+
+.btn3 button {
+	width: 140px;
+
 }
 
 .product-button button:hover {
-    background: #c0001c;
+    background: black;
 }
 
 /* 상세 섹션*/
@@ -119,11 +123,4 @@ h2, h3 {
     gap: 10px; /* 버튼 간격 */
 }
 
-.btn3 {
-    margin-left: 640px;
-    margin-top: 10px;
-    background-color: #fbe3e3;
-    color: black;
-    padding: 5px 20px;
-    border-radius: 5px;
-}
+

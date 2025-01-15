@@ -27,15 +27,20 @@
 			</div>
 			<div class="product-info">
 				<h2 class="product-title"><%= detail.getPROD_NAME() %></h2>
-				<ul>
-				<li><strong>판매가격 : </strong><span class="price"><%= detail.getPROD_PRICE() %></span></li>
-				</ul>
-				<ul>
-					<li><strong>배송비 : </strong><%= detail.getPROD_DELIVERY_FEE() %></li>
-				</ul>
+		
+				<b class="price"><%= detail.getPROD_PRICE() %>원</b>
+				
+				<hr class="detail_line">
+				<br>
+				<p>배송비 : <%= detail.getPROD_DELIVERY_FEE() %>원</p>
+				<p>상품상태: <%= detail.getPROD_STATE() %></p>
+				<br>
+				<p>* 궁금하신 점은 상세내용 아래에 댓글을 이용해 남겨보세요 ~ 💌</p>
+				
 				<div class="product-button">
-					<a href="cleandelivery.jsp" class="btn1"><button>구매하기</button></a>
-					<a href="wishlist.jsp" class="btn2"><button>찜❤</button></a>
+					<a href="#" class="btn1"><button>🛒장바구니</button></a>
+					<a href="wishlist.jsp" class="btn2"><button>❤찜</button></a>
+					<a href="cleandelivery.jsp" class="btn3"><button>구매하기</button></a>
 				</div>
 			</div>
 		</div>
@@ -47,7 +52,17 @@
 			<p>실사용기간: <%= detail.getUSE_PERIOD() %></p>
 			<p>상품상태: <%= detail.getPROD_STATE() %></p>
 			<p>상품후기: <%= detail.getPROD_REVIEW() %></p>
-			<p>성별: <%= detail.getTO_GENDER() %></p>
+			<p>성별: 
+				<%
+				if (detail.getTO_GENDER().equals("M")) {
+					out.print("남아");
+				} else if (detail.getTO_GENDER().equals("W")) {
+					out.print("여아");
+				} else {
+					out.print("무관");
+				}
+				%>
+			</p>
 			<p>나이: <%= detail.getMIN_AGE() %> - <%= detail.getMAX_AGE() %>개월</p>
 		</div>
 
