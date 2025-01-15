@@ -25,15 +25,16 @@ ArrayList<WishDTO> list = dao.wishList(info1.getID());
           	ProductDTO pro = new ProductDTO();
           	
           	for(WishDTO item : list){
-          		System.out.print(item.getPRODUCT_ID());
           		pro = pro_dao.proDetail(Double.toString(item.getPRODUCT_ID()));
           %>
+          <a href="Product_Details.jsp?p_id=<%= Double.toString(item.getPRODUCT_ID())%>">
           <div class="wishlist-item">
             <img src="<%= pro.getPROD_IMG() %>" alt="상품 이미지">
             <h3 class="product-title"><%= pro.getPROD_NAME() %></h3>
             <p class="product-price"><%= pro.getPROD_PRICE() %>원</p>
             <p class="product-date"><%= item.getCREATE_DT() %>3일 전 ❤️</p>
           </div>
+          </a>
           <% } %>
         </div>
 </body>
