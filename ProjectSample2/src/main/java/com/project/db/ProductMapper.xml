@@ -21,4 +21,8 @@
 	<select id="wish-list" parameterType="String" resultType="com.project.model.WishDTO">
 		select * from WISH_LIST where ID = #{id}
 	</select>
+	
+	<select id="pro-main" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N'
+	</select>
 </mapper>
