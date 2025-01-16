@@ -22,10 +22,10 @@
             <h3>상품상태</h3>
             <!-- <div class="range-group"> -->
             <div class="checkbox-group">
-                <label><input type="checkbox" name="new" value="새제품">새제품</label>
-                <label><input type="checkbox" name="upper" value="상">상</label>
-                <label><input type="checkbox" name="middle" value="중">중</label>
-                <label><input type="checkbox" name="lower" value="하">하</label>
+                <label><input type="checkbox" name="state" value="새제품">새제품</label>
+                <label><input type="checkbox" name="state" value="상">상</label>
+                <label><input type="checkbox" name="state" value="중">중</label>
+                <label><input type="checkbox" name="state" value="하">하</label>
             </div>
             
             <h3>연령</h3>

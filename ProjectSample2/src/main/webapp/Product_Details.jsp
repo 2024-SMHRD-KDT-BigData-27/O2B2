@@ -95,7 +95,8 @@
 				action="AddProductCommentService?p_id=<%=request.getParameter("p_id")%>"
 				method="post">
 				<input class="recomment" name="comment" placeholder="댓글을 입력하세요...">
-				<br><input type="submit" class="btn4" value="작성">
+				<br>
+				<input type="submit" class="btn4" value="작성">
 			</form>
 			<div class="comment-list">
 				<%
@@ -106,34 +107,61 @@
 
 				String name = null;
 				for (ProductCommentDTO comment : list) {
+					if(comment.getSUPER_CMT_ID() == null){
 					name = user_dao.findUserName(comment.getID());
 				%>
-				<div class="comment-item">
+				<div class="comment-item" onclick="toggleReplyBox(this)">
 					<p>
 						<strong>🗨 <%=name%></strong>
 						<%=comment.getCOMMENTS()%>
 					</p>
-					<!-- 대댓글 작성 폼 -->
-					<form
-						method="post" class="reply-form">
-						<input class="reply-input" name="reply"
-							placeholder="댓글을 입력하세요..."><input
-							type="submit" class="btn-reply" value="댓글">
-					</form>
-					<!-- 대댓글 리스트 -->
-					<div class="reply-list">
-						
-						<p class="reply-item">
-							↳ <strong>댓글내용달릴곳.</strong>
-							
-						</p>
-						
+
+					<!-- 숨겨진 답글 입력 창 -->
+					<div class="reply-box" style="display: none; margin-left: 20px;">
+						<form
+							action="AddReplyCommentService?p_id=<%=request.getParameter("p_id")%>&parent_id=<%=comment.getP_CMT_ID()%>"
+							method="post">
+							<input type="text" name="reply" placeholder="답글을 입력하세요..."
+								class="reply-input">
+							<button type="submit" class="reply-button">작성</button>
+						</form>
 					</div>
 				</div>
-				<% } %>
-				
+				<%
+				ArrayList<ProductCommentDTO> list1 = cmt_dao.readReply(comment.getP_CMT_ID());
+				for (ProductCommentDTO reply : list1) {  
+						name = user_dao.findUserName(reply.getID());
+				%>
+					<p>
+						<strong>ㄴ 🗨 <%=name%></strong>
+						<%=reply.getCOMMENTS()%>
+					</p>
+				<%
+				} 
+				}
+				%>
+				<%
+				}
+				%>
 			</div>
+
 		</div>
 	</div>
 </body>
+<script>
+    // 답글 입력 창 토글 함수
+    function toggleReplyBox(element) {
+        // 클릭한 댓글 내부에서 reply-box 찾기
+        const replyBox = element.querySelector('.reply-box');
+
+        if (replyBox) {
+            // 현재 상태에 따라 보이기/숨기기
+            if (replyBox.style.display === 'none' || replyBox.style.display === '') {
+                replyBox.style.display = 'block'; // 답글 입력 창 보이기
+            } else {
+                replyBox.style.display = 'none'; // 답글 입력 창 숨기기
+            }
+        }
+    }
+</script>
 </html>

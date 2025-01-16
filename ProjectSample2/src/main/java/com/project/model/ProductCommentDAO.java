@@ -28,4 +28,21 @@ public class ProductCommentDAO {
 		return list;
 	}
 	
+	public void addReply(ProductCommentDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		int cnt = sqlSession.insert("add-reply", dto);
+		
+		sqlSession.close();
+	}
+	
+	public ArrayList<ProductCommentDTO> readReply(double super_id){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductCommentDTO> list = (ArrayList) sqlSession.selectList("select-reply", super_id);
+		sqlSession.close();
+		
+		return list;
+	}
+	
 }
