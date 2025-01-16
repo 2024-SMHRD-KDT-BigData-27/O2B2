@@ -8,4 +8,12 @@
 	<select id="select-comment" parameterType="String" resultType="com.project.model.ProductCommentDTO">
 		select * from PRODUCT_COMMENT_INFO where PROD_ID = #{p_id} order by CREATE_DT
 	</select>
+	
+	<insert id="add-reply" parameterType="com.project.model.ProductCommentDTO">
+		insert into PRODUCT_COMMENT_INFO values(PRO_CMT_SEQ.NEXTVAL, #{PROD_ID}, #{COMMENTS}, sysdate, #{ID}, #{SUPER_CMT_ID})
+	</insert>
+	
+	<select id="select-reply" parameterType="double" resultType="com.project.model.ProductCommentDTO">
+		select * from PRODUCT_COMMENT_INFO where SUPER_CMT_ID = #{super_id} order by CREATE_DT
+	</select>
 </mapper>
