@@ -11,13 +11,13 @@
 </head>
 <body>
 	<%@include file="search.jsp"%>
-
+		    
 	<div class="popup-overlay" id="popup" style="display: none;">
 		<div class="popup-content">
 			<div class="popup-header">📢 알려드립니다.</div>
 			<div class="popup-body">
 				※ 위생 케어 서비스 ※<br> <br> 우리 아이를 위한 완벽한 위생 관리!<br>
-				육아육아에서는 전문 케어 업체와 협업하에 소독 및 품질 검수를 통해 보다 더 위생적인 제품을 받아 볼 수 있도록 도와드리고
+				육아육아에서는 전문 케어 업체와 협업하에 소독 및 품질 검수를 통해 보다 더 위생적인 제품을 받아 볼 수 있도록 <br>도와드리고
 				있습니다. <br>(제품구매 창에서 확인해주세요😊)
 			</div>
 			<hr class="line1">
@@ -31,7 +31,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script>
 		// 팝업 표시 함수
 		function showPopup() {
@@ -72,7 +71,19 @@
 
 	<%
 	ProductDAO pro_dao = new ProductDAO();
-	ArrayList<ProductDTO> list = pro_dao.proMain();
+	
+	ArrayList<ProductDTO> list = null;
+	
+    String select_category = request.getParameter("category");
+    String gender = request.getParameter("gender");
+    
+    if(select_category != null & gender != null){
+    	list = pro_dao.proCategoryGender(select_category, gender);    	
+    } else if(select_category != null & gender == null){
+    	list = pro_dao.proCategory(select_category);
+    } else{
+		list = pro_dao.proMain();
+    }
 	%>
 
 	<div id="feed">

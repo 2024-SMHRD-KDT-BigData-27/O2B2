@@ -23,30 +23,30 @@
                 <button class="dropdown-button">
                 <img src="./img/menu.png" width="20px" height="20px"></button>
                 <div class="dropdown-content" id="total">
-                		<a href="#">상의</a>
+                		<a href="main.jsp?category=상의">상의</a>
                         <a href="#">하의</a>
                         <a href="#">상/하의 세트</a>
                         <a href="#">실내복</a>
                         <a href="#">바디수트</a>
                         <br>
-                        <a href="#">이불</a>
-                        <a href="#">베개</a>
-                        <a href="#">쿠션</a>
-                        <a href="#">러그</a>
-                        <a href="#">담요</a>
+                        <a href="main.jsp?category=이불">이불</a>
+                        <a href="main.jsp?category=베개">베개</a>
+                        <a href="main.jsp?category=쿠션">쿠션</a>
+                        <a href="main.jsp?category=러그">러그</a>
+                        <a href="main.jsp?category=담요">담요</a>
                         <br>
-                        <a href="#">운동화</a>
-                        <a href="#">샌들</a>
-                        <a href="#">모자</a>
-                        <a href="#">가방</a>
-                        <a href="#">양말</a>
-                        <a href="#">장갑</a>
+                        <a href="main.jsp?category=운동화">운동화</a>
+                        <a href="main.jsp?category=샌들">샌들</a>
+                        <a href="main.jsp?category=모자">모자</a>
+                        <a href="main.jsp?category=가방">가방</a>
+                        <a href="main.jsp?category=양말">양말</a>
+                        <a href="main.jsp?category=장갑">장갑</a>
                         <br>
-                        <a href="#">유모차</a>
-                        <a href="#">카시트</a>
-                        <a href="#">아기의자</a>
-                        <a href="#">보행기</a>
-                        <a href="#">헬멧</a>
+                        <a href="main.jsp?category=유모차">유모차</a>
+                        <a href="main.jsp?category=카시트">카시트</a>
+                        <a href="main.jsp?category=아기의자">아기의자</a>
+                        <a href="main.jsp?category=보행기">보행기</a>
+                        <a href="main.jsp?category=헬맷">헬멧</a>
           	</div>
           	</div>
             <a href="#" class="dropdown">나만의 상품 💗</a>
@@ -54,7 +54,7 @@
             <div class="dropdown">
                 <button class="dropdown-button">여아의류</button>
                 <div class="dropdown-content">
-                    <a href="#">상의</a>
+                    <a href="main.jsp?category=상의&gender=W">상의</a>
                     <a href="#">하의</a>
                     <a href="#">상/하의 세트</a>
                     <a href="#">실내복</a>
@@ -74,39 +74,39 @@
             <div class="dropdown">
                 <button class="dropdown-button">유아침구</button>
                 <div class="dropdown-content">
-                    <a href="#">이불</a>
-                    <a href="#">베개</a>
-                    <a href="#">쿠션</a>
-                    <a href="#">러그</a>
-                    <a href="#">담요</a>
+                    <a href="main.jsp?category=이불">이불</a>
+                    <a href="main.jsp?category=베개">베개</a>
+                    <a href="main.jsp?category=쿠션">쿠션</a>
+                    <a href="main.jsp?category=러그">러그</a>
+                    <a href="main.jsp?category=담요">담요</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-button">신발/잡화</button>
                 <div class="dropdown-content">
-                    <a href="#">운동화</a>
-                    <a href="#">샌들</a>
-                    <a href="#">모자</a>
-                    <a href="#">가방</a>
-                    <a href="#">양말</a>
-                    <a href="#">장갑</a>
+                    <a href="main.jsp?category=운동화">운동화</a>
+                    <a href="main.jsp?category=샌들">샌들</a>
+                    <a href="main.jsp?category=모자">모자</a>
+                    <a href="main.jsp?category=가방">가방</a>
+                    <a href="main.jsp?category=양말">양말</a>
+                    <a href="main.jsp?category=장갑">장갑</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-button">안전용품</button>
                 <div class="dropdown-content">
-                    <a href="#">유모차</a>
-                    <a href="#">카시트</a>
-                    <a href="#">아기의자</a>
-                    <a href="#">보행기</a>
-                    <a href="#">헬멧</a>
+                    <a href="main.jsp?category=유모차">유모차</a>
+                    <a href="main.jsp?category=카시트">카시트</a>
+                    <a href="main.jsp?category=아기의자">아기의자</a>
+                    <a href="main.jsp?category=보행기">보행기</a>
+                    <a href="main.jsp?category=헬맷">헬멧</a>
                 </div>
             </div>
             <div class="dropdown">
-                <button class="dropdown-button">놀이용품</button>
+                <a href="main.jsp?category=놀이용품"><button class="dropdown-button">놀이용품</button></a>
             </div>
             <div class="dropdown">
-                <button class="dropdown-button">도서</button>
+                <a href="main.jsp?category=도서"><button class="dropdown-button">도서</button></a>
             </div>
             <a href="board.jsp">게시판</a>
         </nav>

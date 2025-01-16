@@ -1,6 +1,7 @@
 package com.project.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -48,6 +49,32 @@ public class ProductDAO {
 		sqlSession.close();
 		
 		return list;
+	}
+	
+	public ArrayList<ProductDTO> proCategory(String category){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList)sqlSession.selectList("pro-category", category);
+		
+		sqlSession.close();
+		
+		return list;
+		
+	}
+	
+	public ArrayList<ProductDTO> proCategoryGender(String category, String gender){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		HashMap<String, String> param = new HashMap<>();
+		param.put("category", category);
+		param.put("gender", gender);
+		
+		ArrayList<ProductDTO> list = (ArrayList)sqlSession.selectList("pro-category-gender", param);
+		
+		sqlSession.close();
+		
+		return list;
+		
 	}
 	
 }

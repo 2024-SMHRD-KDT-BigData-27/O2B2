@@ -25,4 +25,12 @@
 	<select id="pro-main" resultType="com.project.model.ProductDTO">
 		select * from PRODUCT_INFO where SOLD_YN = 'N' order by PROD_ID DESC
 	</select>
+	
+	<select id="pro-category" parameterType="String" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} order by PROD_ID DESC
+	</select>
+
+	<select id="pro-category-gender" parameterType="HashMap" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
+	</select>
 </mapper>

@@ -46,8 +46,8 @@
 
 				<div class="product-button">
 					<a href="#" class="btn1"><button>🛒장바구니</button></a> <a
-						href="wishlist.jsp" class="btn2"><button>❤찜</button></a> <a
-						href="cleandelivery.jsp" class="btn3"><button>구매하기</button></a>
+						href="AddWishListService?p_id=<%= request.getParameter("p_id") %>" class="btn2"><button>❤찜</button></a> <a
+						href="cleandelivery.jsp?p_id=<%= request.getParameter("p_id") %>" class="btn3"><button>구매하기</button></a>
 				</div>
 			</div>
 		</div>
@@ -125,13 +125,10 @@
 						
 						<p class="reply-item">
 							↳ <strong>댓글내용달릴곳.</strong>
-							
 						</p>
-						
 					</div>
 				</div>
 				<% } %>
-				
 			</div>
 		</div>
 	</div>

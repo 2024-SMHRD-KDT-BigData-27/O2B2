@@ -38,11 +38,6 @@
 	<form name="form" id="form" action="JoinService">
 		<div class="table-form" align="center">
 			<table class="table" width="650" align="center">
-				<!-- 			<tr>
-				<th width="400" height="50" align="center" colspan="2">
-					<h2>회원가입</h2>
-				</th>
-			</tr> -->
 				<tr height="50">
 					<td align="left">* 아이디</td>
 					<td><input class="register-text1" name="id" type="text" readonly></td>

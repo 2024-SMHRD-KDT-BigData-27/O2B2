@@ -10,6 +10,23 @@
 </head>
 <body>
 	<%@include file="category.jsp"%>
+		<%
+	ProductDAO dao = new ProductDAO();
+	ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
+	System.out.print(detail);
+	
+	  long price = detail.getPROD_PRICE(); 
+	  long deliveryFee = detail.getPROD_DELIVERY_FEE(); 
+	  long totalPrice = price + deliveryFee; 
+	  
+	  long carePrice = Math.round(totalPrice * 0.1);
+	  
+	  long toPrice = totalPrice + carePrice;
+	  
+%>
+
+	
+	
 	<div class="clean-popup-overlay" id="popup">
 		<div class="clean-popup-content">
 			<div class="clean-popup-header">✔ 구매전 확인해주세요.</div>
@@ -117,17 +134,21 @@
 		<tr bgcolor="whitesmoke" height="50">
 			<td align="left">
 				<h3>
-					주문금액<br>
-					<br>+케어서비스
+					주문금액 : <%=totalPrice%><br>
+					<br>+케어서비스 : <%=carePrice %>
 				</h3>
 			</td>
 		</tr>
 		<tr bgcolor="whitesmoke" height="50">
 			<td align="right">
-				<h2>총금액:</h2>
+				<h2>총금액 : <%= toPrice %></h2>
 			</td>
 		</tr>
-
+		<tr>
+			<td>
+				<a href="#"><button class="buy-btn">결제하기</button></a>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>
