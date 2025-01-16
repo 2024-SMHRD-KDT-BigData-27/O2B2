@@ -31,8 +31,9 @@
 				<%
 				} else {
 				%>
-
-				<a href="wishlist.jsp">💌 찜 목록</a>
+		
+				<a href="calender.jsp">📆마이캘린더</a>
+				<a href="cart_container.jsp">🛒장바구니</a>
 				<div class="dropdown">
 					<button class="dropdown-button">마이페이지</button>
 					<div class="dropdown-content">

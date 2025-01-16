@@ -11,7 +11,7 @@
 </head>
 <body>
   <%@ include file="header.jsp" %>
-  <h1 id="calender-header" align="center"> 맘's 캘린더</h1>
+  <h1 id="calender-header" align="center"> 마이 캘린더</h1>
   <hr class="line">
   <div id="calendar"></div>
   <div id="memoModal" style="display: none;">

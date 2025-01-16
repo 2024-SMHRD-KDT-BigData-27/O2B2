@@ -18,6 +18,8 @@ public class AddReplyCommentService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
+		
 		String prod_id = request.getParameter("p_id");
 		String parent_id = request.getParameter("parent_id");
 		String reply = request.getParameter("reply");
@@ -36,6 +38,8 @@ public class AddReplyCommentService extends HttpServlet {
 		ProductCommentDAO dao = new ProductCommentDAO();
 
 		dao.addReply(dto);
+		
+		response.sendRedirect("Product_Details.jsp?p_id="+prod_id);
 	}
 
 }

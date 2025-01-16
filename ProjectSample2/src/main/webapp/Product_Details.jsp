@@ -46,11 +46,16 @@
 
             <div class="product-button">
                <a href="#" class="btn1"><button>🛒장바구니</button></a> <a
-                  href="wishlist.jsp" class="btn2"><button>❤찜</button></a> <a
-                  href="cleandelivery.jsp" class="btn3"><button>구매하기</button></a>
+                  href="AddWishListService?p_id= <%=request.getParameter("p_id") %>" class="btn2"><button onclick="wishService()">❤찜</button></a> <a
+                  href="cleandelivery.jsp?p_id= <%=request.getParameter("p_id") %>" class="btn3"><button>구매하기</button></a>
             </div>
          </div>
       </div>
+		<script>
+		function wishService() {
+			alert('찜 목록에💌 추가 되었습니다!');
+		}
+	</script>
 
       <!-- 상세 내용 -->
       <div class="details">
