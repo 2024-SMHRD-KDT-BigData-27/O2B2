@@ -14,15 +14,7 @@
 	ProductDAO dao = new ProductDAO();
 	ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
 	System.out.print(detail);
-	
-	  long price = detail.getPROD_PRICE(); 
-	  long deliveryFee = detail.getPROD_DELIVERY_FEE(); 
-	  long totalPrice = price + deliveryFee; 
-	  
-	  long carePrice = Math.round(totalPrice * 0.1);
-	  
-	  long toPrice = totalPrice + carePrice;
-	  
+
 %>
 
 	
@@ -111,7 +103,7 @@
 						서비스 추가 시 주문금액에 따라 추가 비용이 발생합니다.<br> <strong>총 주문 금액에
 							자동 반영됩니다.</strong>
 					</p>
-					<button onclick="addCareService()"
+					<button id="care-button" onclick="addCareService()"
 						style="padding: 10px 20px; background-color: #2c64a0; color: white; border: none; border-radius: 5px; font-size: 14px; cursor: pointer;">
 						케어서비스 추가하기</button>
 				</div>
@@ -125,30 +117,64 @@
 		}
 	</script>
 
-	<table width="650" align="center">
-		<tr>
-			<th width="400" height="50" align="left" colspan="2">
-				<h2>결제정보</h2>
-			</th>
-		</tr>
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">
-				<h3>
-					주문금액 : <%=totalPrice%><br>
-					<br>+케어서비스 : <%=carePrice %>
-				</h3>
-			</td>
-		</tr>
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="right">
-				<h2>총금액 : <%= toPrice %></h2>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<a href="#"><button class="buy-btn">결제하기</button></a>
-			</td>
-		</tr>
-	</table>
-</body>
+    <% 	  
+	  long price = detail.getPROD_PRICE(); 
+	  long deliveryFee = detail.getPROD_DELIVERY_FEE(); 
+	  
+	  long totalPrice = price + deliveryFee; 
+	  long carePrice = Math.round(totalPrice * 0.1);
+	  long tocarePrice = totalPrice + carePrice;
+	%>
+
+<table width="650" align="center">
+    <tr>
+        <th width="400" height="50" align="left" colspan="2">
+            <h2>결제정보</h2>
+        </th>
+    </tr>
+    <tr bgcolor="whitesmoke" height="50">
+        <td align="left">
+            <h3>주문금액 : <%=totalPrice%></h3>
+            <!-- 케어서비스 금액, 초기에는 숨김 -->
+            <p id="care-service" style="display: none;">+케어서비스 : <%=carePrice %></p>
+        </td>
+    </tr>
+    <tr bgcolor="whitesmoke" height="50">
+        <td align="right">
+            <h2 id="total-price">총금액 : <span id="total-price2"><%= totalPrice %></span></h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a href="#"><button class="buy-btn">결제하기</button></a>
+        </td>
+    </tr>
+</table>
+
+<script>
+    let careServiceAdded = false; // 케어서비스 추가 여부를 추적하는 변수
+	let total = document.getElementById("total-price2")
+    
+    function addCareService() {
+        const careServiceElement = document.getElementById("care-service");
+        const totalPriceElement = document.getElementById("total-price");
+
+        if (!careServiceAdded) {
+            // 케어서비스 금액을 표시하고, 총금액을 업데이트
+            careServiceElement.style.display = "block";
+            const totalPrice = <%= totalPrice %>; // JSP에서 가져온 주문금액
+            const carePrice = <%= carePrice %>;   // JSP에서 가져온 케어서비스 금액
+            const tocarePrice = <%= tocarePrice %>; // 총금액 + 케어서비스 가격
+            totalPriceElement.innerText = `총금액 : \${tocarePrice}`; // 업데이트된 총금액 표시
+            careServiceAdded = true; // 케어서비스 추가됨 표시
+        } else {
+            // 케어서비스 제거하고, 총금액을 원래대로 되돌림
+            careServiceElement.style.display = "none";
+            const totalPrice = <%= totalPrice %>; // JSP에서 가져온 주문금액
+            totalPriceElement.innerText = `총금액 : \${totalPrice}`; // 원래의 총금액으로 되돌림
+            careServiceAdded = false; // 케어서비스 제거됨 표시
+        }
+    }
+</script>
+
 </html>

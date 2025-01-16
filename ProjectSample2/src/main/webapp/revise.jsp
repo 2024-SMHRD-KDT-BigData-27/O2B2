@@ -32,7 +32,7 @@
 <body style="overflow: scroll;">
 	<%@include file="category.jsp" %>
 	
-	<h1 id="calender-header" align="center">정보수정</h1>
+	<h1 id="calender-header" align="center">회원정보수정</h1>
     <hr class="line">
 
 	<form name="form" id="form" action="JoinService">

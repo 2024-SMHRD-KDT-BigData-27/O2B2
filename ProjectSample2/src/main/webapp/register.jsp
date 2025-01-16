@@ -52,12 +52,12 @@
 				<tr height="50">
 					<td align="left">비밀번호</td>
 					<td><input name="pw" class="register-text" type="password"
-						maxlength="10"></td>
+						maxlength="15"></td>
 				</tr>
 				<tr height="50">
 					<td align="left">비밀번호확인</td>
 					<td><input class="register-text" type="password"
-						maxlength="10"></td>
+						maxlength="15"></td>
 
 				</tr>
 				<tr height="50">
@@ -83,12 +83,12 @@
 				<tr height="50">
 					<td align="left">휴대전화</td>
 					<td><input class="register-text" name="ph" id="ph" type="text"
-						maxlength="10"></td>
+						maxlength="20"></td>
 				</tr>
 				<tr height="50">
 					<td align="left">이메일</td>
 					<td><input class="register-text" name="email" id="eamil"
-						type="text" maxlength="10"></td>
+						type="text" maxlength="30"></td>
 				</tr>
 			</table>
 		</div>

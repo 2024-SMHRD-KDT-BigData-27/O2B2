@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,52 +10,51 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
+	<%
+	userDTO info2 = (userDTO) session.getAttribute("info");
+	CartDAO dao = new CartDAO();
+	ArrayList<CartDTO> list = dao.cart_container(info2.getID());
+	%>
 	<%@include file="category.jsp"%>
+	 	<div class="cart-container">
+	 
+	    <% 
+        	ProductDAO pro_dao = new ProductDAO(); 
+          	ProductDTO pro = new ProductDTO();
+          	
+          	for(CartDTO item : list){
+          		pro = pro_dao.proDetail(Double.toString(item.getPRODUCT_ID()));
+          %>
+	 
+        <h1>장바구니</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>제품 이미지</th>
+                    <th>제목</th>
+                    <th>금액</th>
+                    <th>선택</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                	<a href="Product_Details.jsp?p_id=<%= Double.toString(item.getPRODUCT_ID())%>">
+                    <td><input type="checkbox"></td>
+                    <td><img src="<%= pro.getPROD_IMG() %>" alt="상품 이미지 1" class="product-image"></td>
+                    <td><%= pro.getPROD_NAME() %></td>
+                    <td><%= pro.getPROD_PRICE() %>원</td>
+                    <td>
+                        <button class="cart-btn">삭제</button>
+                    </td></a>
+                    <% } %>
+                </tr>
+            </tbody>
+        </table>
+        <div class="order-button-container">
+            <button class="order-btn">주문하기</button>
+        </div>
+    </div>
 
-	<div class="cart-container">
-		<h1>장바구니</h1>
-		<table class="cart-table">
-			<thead>
-				<tr>
-					<th></th>
-					<th>제품 이미지</th>
-					<th>제목</th>
-					<th>수량</th>
-					<th>금액</th>
-					<th>선택</th>
-				</tr>
-			</thead>
-			<tbody>
-
-				<tr>
-					<td><input type="checkbox"></td>
-					<td><img src="img1.jpg" alt="상품 이미지 1" class="product-image"></td>
-					<td>시크링</td>
-					<td><input type="number" min="1" value="1"
-						class="quantity-input"></td>
-					<td>5,700원</td>
-					<td>
-						<button class="cart-btn">삭제</button>
-
-					</td>
-				</tr>
-
-				<tr>
-					<td><input type="checkbox"></td>
-					<td><img src="img2.jpg" alt="상품 이미지 2" class="product-image"></td>
-					<td>플라워썸</td>
-					<td><input type="number" min="1" value="1"
-						class="quantity-input"></td>
-					<td>4,100원</td>
-					<td>
-						<button class="cart-btn">삭제</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="order-button-container">
-			<button class="order-btn">주문하기</button>
-		</div>
-	</div>
 </body>
 </html>

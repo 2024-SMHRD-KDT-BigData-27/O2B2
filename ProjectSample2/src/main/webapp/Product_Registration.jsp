@@ -125,7 +125,7 @@
 					id="age" name="min-age" placeholder="예: 10" min="0"> ~ <input
 					type="number" id="age" name="max-age" placeholder="예: 36" min="0"></div>
 				<br>
-				<a href="#"><button type="submit" class="btn1">상세 정보 저장</button></a>
+				<a href="selllist.jsp"><button type="submit" class="btn1">상세 정보 저장</button></a>
 			</div>
 		</div>
 	</form>

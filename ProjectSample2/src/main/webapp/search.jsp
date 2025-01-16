@@ -30,8 +30,8 @@
             
             <h3>연령</h3>
             <div class="range-group">
-                <input type="number" name="age_min" min="0" >세~
-                <input type="number" name="age_max" min="0">세
+                <input type="number" name="age_min" min="0" >개월~
+                <input type="number" name="age_max" min="0">개월
             </div>
 
             <h3>가격</h3>
