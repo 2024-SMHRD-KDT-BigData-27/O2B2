@@ -98,6 +98,13 @@ h2, h3 {
 	height: 100px;
 }
 
+.btn4 {
+	background:#000000;
+    color: #ffffff;
+    margin-left : 665px;
+    margin-top : 10px;
+}
+
 .comment-section {
     margin-top: 20px;
     padding: 20px;
@@ -125,7 +132,7 @@ h2, h3 {
 }
 
 .reply-input {
-    width: calc(100% - 20px);
+    width: 500px;
     padding: 5px;
     margin-bottom: 5px;
 }
@@ -137,12 +144,12 @@ h2, h3 {
 }
 
 .btn-reply {
-    background-color: #007BFF;
-    color: #fff;
+    background-color:#797878;
+    color: #ffffff;
     border: none;
     padding: 5px 10px;
-    border-radius: 5px;
     cursor: pointer;
+    margin-left : 8px;
 }
 
 .btn-reply:hover {

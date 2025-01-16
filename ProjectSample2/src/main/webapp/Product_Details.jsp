@@ -95,7 +95,7 @@
 				action="AddProductCommentService?p_id=<%=request.getParameter("p_id")%>"
 				method="post">
 				<input class="recomment" name="comment" placeholder="댓글을 입력하세요...">
-				<br> <input type="submit" class="btn3">
+				<br><input type="submit" class="btn4" value="작성">
 			</form>
 			<div class="comment-list">
 				<%
@@ -110,21 +110,21 @@
 				%>
 				<div class="comment-item">
 					<p>
-						<strong><%=name%></strong>
+						<strong>🗨 <%=name%></strong>
 						<%=comment.getCOMMENTS()%>
 					</p>
 					<!-- 대댓글 작성 폼 -->
 					<form
 						method="post" class="reply-form">
 						<input class="reply-input" name="reply"
-							placeholder="대댓글을 입력하세요..."> <br> <input
-							type="submit" class="btn-reply" value="대댓글 남기기">
+							placeholder="댓글을 입력하세요..."><input
+							type="submit" class="btn-reply" value="댓글">
 					</form>
 					<!-- 대댓글 리스트 -->
 					<div class="reply-list">
 						
 						<p class="reply-item">
-							↳ <strong>ㅇㅇ</strong>
+							↳ <strong>댓글내용달릴곳.</strong>
 							
 						</p>
 						
