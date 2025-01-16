@@ -11,12 +11,12 @@
 <body>
 	<%@include file="category.jsp"%>
 	<div class="filter-container">
-        <form action="#" method="get">
+        <form action="FilterService" method="get">
             <h3>성별</h3>
             <div class="checkbox-group">
-                <label><input type="checkbox" name="gender" value="male"> 남아</label>
-                <label><input type="checkbox" name="gender" value="female"> 여아</label>
-                <label><input type="checkbox" name="gender" value="all"> 무관</label>
+                <label><input type="checkbox" name="gender" value="M"> 남아</label>
+                <label><input type="checkbox" name="gender" value="W"> 여아</label>
+                <label><input type="checkbox" name="gender" value="N"> 무관</label>
             </div>
                         
             <h3>상품상태</h3>

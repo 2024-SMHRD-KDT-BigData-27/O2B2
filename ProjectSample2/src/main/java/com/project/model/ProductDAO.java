@@ -2,6 +2,7 @@ package com.project.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -75,6 +76,16 @@ public class ProductDAO {
 		
 		return list;
 		
+	}
+	
+	public ArrayList<ProductDTO> proFilter(Map<String, Object> params){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList) sqlSession.selectList("pro-filter", params);
+
+		sqlSession.close();
+		
+		return list;
 	}
 	
 }

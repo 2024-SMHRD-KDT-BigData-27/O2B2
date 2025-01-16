@@ -33,4 +33,46 @@
 	<select id="pro-category-gender" parameterType="HashMap" resultType="com.project.model.ProductDTO">
 		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
 	</select>
+	
+<!-- 	<select id="pro-category-gender" parameterType="HashMap" resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
+	</select> -->
+	
+	
+	
+	<select id="pro-filter" resultType="com.project.model.ProductDTO">
+        SELECT * 
+        FROM PRODUCT_INFO
+        WHERE 1=1
+        <!-- 성별 조건 -->
+        <if test="genders != null and genders.size() > 0">
+            AND TO_GENDER IN
+            <foreach collection="genders" item="gender" open="(" separator="," close=")">
+                #{gender}
+            </foreach>
+        </if>
+        <!-- 상품 상태 조건 -->
+        <if test="states != null and states.size() > 0">
+            AND PROD_STATE IN
+            <foreach collection="states" item="state" open="(" separator="," close=")">
+                #{state}
+            </foreach>
+        </if>
+        <!-- 연령 조건 -->
+        <if test="ageMin != null">
+            AND #{ageMin} &lt;= MIN_AGE
+        </if>
+        <if test="ageMax != null">
+            AND #{ageMax} &gt;= MAX_AGE
+        </if>
+        <!-- 가격 조건 -->
+        <if test="priceMin != null">
+            AND PROD_PRICE &gt;= #{priceMin}
+        </if>
+        <if test="priceMax != null">
+            AND PROD_PRICE &lt;= #{priceMax}
+        </if>
+    </select>
+	
+	
 </mapper>
