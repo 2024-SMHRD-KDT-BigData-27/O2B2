@@ -15,7 +15,6 @@
    <%
    ProductDAO dao = new ProductDAO();
    ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
-   System.out.print(detail);
    %>
 
 
@@ -45,7 +44,7 @@
             <p>* 궁금하신 점은 상세내용 아래에 댓글을 이용해 남겨보세요 ~ 💌</p>
 
             <div class="product-button">
-               <a href="#" class="btn1"><button>🛒장바구니</button></a> <a
+               <a href="CartService?p_id= <%=request.getParameter("p_id") %>" class="btn1"><button>🛒장바구니</button></a> <a
                   href="AddWishListService?p_id= <%=request.getParameter("p_id") %>" class="btn2"><button onclick="wishService()">❤찜</button></a> <a
                   href="cleandelivery.jsp?p_id= <%=request.getParameter("p_id") %>" class="btn3"><button>구매하기</button></a>
             </div>

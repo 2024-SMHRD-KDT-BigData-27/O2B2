@@ -34,10 +34,9 @@
 		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
 	</select>
 	
-<!-- 	<select id="pro-category-gender" parameterType="HashMap" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
-	</select> -->
-	
+	<insert id="cart_container" parameterType="com.project.model.CartDTO">
+		insert into CART_LIST values(CART_LIST_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, sysdate)
+	</insert>
 	
 	
 	<select id="pro-filter" resultType="com.project.model.ProductDTO">
@@ -73,6 +72,13 @@
             AND PROD_PRICE &lt;= #{priceMax}
         </if>
     </select>
+    
+    <select id="cart-list" parameterType="String" resultType="com.project.model.CartDTO">
+    	select * from CART_LIST where ID = #{id}
+    </select>
 	
+	<delete id="delete-cart" parameterType="String">
+		delete from CART_LIST where Cart_ID = #{cart_id}
+	</delete>
 	
 </mapper>

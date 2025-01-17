@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,8 +14,15 @@
 		<%
 	ProductDAO dao = new ProductDAO();
 	ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
-	System.out.print(detail);
-
+	System.out.println(detail);
+	
+	String[] p_id_array = request.getParameterValues("p_id");
+	
+	ArrayList<ProductDTO> list = new ArrayList<>();
+	for(String p_id : p_id_array){
+		list.addLast((ProductDTO) dao.proDetail(p_id));
+	} 
+	
 %>
 
 	
@@ -118,10 +126,19 @@
 	</script>
 
     <% 	  
-	  long price = detail.getPROD_PRICE(); 
-	  long deliveryFee = detail.getPROD_DELIVERY_FEE(); 
+    long price = 0; 
+	long deliveryFee = 0; 
 	  
-	  long totalPrice = price + deliveryFee; 
+	long totalPrice = 0; 
+	  
+    for(ProductDTO detail1 : list){
+    	price = detail1.getPROD_PRICE();
+    	deliveryFee = detail1.getPROD_DELIVERY_FEE();
+    	
+    	totalPrice += price + deliveryFee;
+    }
+	  
+	  
 	  long carePrice = Math.round(totalPrice * 0.1);
 	  long tocarePrice = totalPrice + carePrice;
 	%>

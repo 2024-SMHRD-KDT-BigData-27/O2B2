@@ -13,48 +13,54 @@
 	<%
 	userDTO info2 = (userDTO) session.getAttribute("info");
 	CartDAO dao = new CartDAO();
-	ArrayList<CartDTO> list = dao.cart_container(info2.getID());
+	ArrayList<CartDTO> list = dao.cart_list(info2.getID());
 	%>
 	<%@include file="category.jsp"%>
-	 	<div class="cart-container">
-	 
-	    <% 
-        	ProductDAO pro_dao = new ProductDAO(); 
-          	ProductDTO pro = new ProductDTO();
-          	
-          	for(CartDTO item : list){
-          		pro = pro_dao.proDetail(Double.toString(item.getPRODUCT_ID()));
-          %>
-	 
-        <h1>장바구니</h1>
-        <table class="cart-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>제품 이미지</th>
-                    <th>제목</th>
-                    <th>금액</th>
-                    <th>선택</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                	<a href="Product_Details.jsp?p_id=<%= Double.toString(item.getPRODUCT_ID())%>">
-                    <td><input type="checkbox"></td>
-                    <td><img src="<%= pro.getPROD_IMG() %>" alt="상품 이미지 1" class="product-image"></td>
-                    <td><%= pro.getPROD_NAME() %></td>
-                    <td><%= pro.getPROD_PRICE() %>원</td>
-                    <td>
-                        <button class="cart-btn">삭제</button>
-                    </td></a>
-                    <% } %>
-                </tr>
-            </tbody>
-        </table>
-        <div class="order-button-container">
-            <button class="order-btn">주문하기</button>
-        </div>
-    </div>
+	<div class="cart-container">
+
+		<h1>장바구니</h1>
+		<form action="cleandelivery.jsp">
+		<table class="cart-table">
+			<thead>
+				<tr>
+					<th></th>
+					<th>제품 이미지</th>
+					<th>이름</th>
+					<th>금액</th>
+					<th>선택</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				ProductDAO pro_dao = new ProductDAO();
+				ProductDTO pro = new ProductDTO();
+
+				for (CartDTO item : list) {
+					pro = pro_dao.proDetail(Double.toString(item.getPRODUCT_ID()));
+					
+				%>
+
+				<tr>
+					
+						<td><input type="checkbox" name="p_id" value="<%= item.getPRODUCT_ID() %>"></td>
+						<td onclick="location.href='Product_Details.jsp?p_id=<%=Double.toString(item.getPRODUCT_ID())%>'"><img src="<%=pro.getPROD_IMG()%>" alt="상품 이미지 1"
+							class="product-image"></td>
+						<td onclick="location.href='Product_Details.jsp?p_id=<%=Double.toString(item.getPRODUCT_ID())%>'"><%=pro.getPROD_NAME()%></td>
+						<td><%=pro.getPROD_PRICE()%>원</td>
+					<td>
+						<a href="DeleteCart?cart_id=<%= item.getCart_ID() %>"><button class="cart-btn">삭제</button></a>
+					</td>
+				</tr>
+					<%
+					}
+					%>
+			</tbody>
+		</table>
+		<div class="order-button-container">
+			<input type="submit" class="order-btn" value="주문하기">
+		</div>
+		</form>
+	</div>
 
 </body>
 </html>
