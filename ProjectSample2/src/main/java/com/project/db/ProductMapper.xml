@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="pro-list" parameterType="String" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SELLER_ID = #{id}
+		select * from PRODUCT_INFO where SELLER_ID = #{id} order by PROD_ID
 	</select>
 	
 	<select id="pro-detail" parameterType="String" resultType="com.project.model.ProductDTO">
@@ -64,13 +64,16 @@
         <if test="ageMax != null">
             AND #{ageMax} &gt;= MAX_AGE
         </if>
-        <!-- 가격 조건 -->
-        <if test="priceMin != null">
-            AND PROD_PRICE &gt;= #{priceMin}
-        </if>
-        <if test="priceMax != null">
-            AND PROD_PRICE &lt;= #{priceMax}
-        </if>
+        
+	 <where>
+	    <if test="priceMin != null">
+	        AND PROD_PRICE &gt;= #{priceMin}
+	    </if>
+	    <if test="priceMax != null">
+	        AND PROD_PRICE &lt;= #{priceMax}
+	    </if>
+	</where>
+
     </select>
     
     <select id="cart-list" parameterType="String" resultType="com.project.model.CartDTO">
@@ -81,4 +84,7 @@
 		delete from CART_LIST where Cart_ID = #{cart_id}
 	</delete>
 	
+	<update id="sold-out" parameterType="String">
+		update PRODUCT_INFO set SOLD_YN = 'Y'  where PROD_ID = #{p_id} 
+	</update>
 </mapper>

@@ -6,12 +6,16 @@
 <head>
 <meta charset="UTF-8">
 <title>delivery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://democpay.payple.kr/js/v1/payment.js"></script>
 <link href="${pageContext.request.contextPath}/css/cleandelivery.css"
 	rel="stylesheet" type="text/css">
 </head>
 <body>
 	<%@include file="category.jsp"%>
 		<%
+		
+	userDTO info1 = (userDTO) session.getAttribute("info");
 	ProductDAO dao = new ProductDAO();
 	ProductDTO detail = (ProductDTO) dao.proDetail(request.getParameter("p_id"));
 	System.out.println(detail);
@@ -24,9 +28,6 @@
 	} 
 	
 %>
-
-	
-	
 	<div class="clean-popup-overlay" id="popup">
 		<div class="clean-popup-content">
 			<div class="clean-popup-header">✔ 구매전 확인해주세요.</div>
@@ -53,48 +54,59 @@
 			popup.style.display = 'none';
 		}
 	</script>
+	
+	<script>
+    // 주문자 정보로 입력 필드 채우기
+    function fillDeliveryInfo() {
+        document.getElementById("receiver-name").value = "<%= info1.getNAME() %>";
+        document.getElementById("receiver-address").value = "<%= info1.getADDRESS() %>";
+        document.getElementById("receiver-address-detail").value = "<%= info1.getDETAILED_ADDRESS() %>";
+        document.getElementById("receiver-phone").value = "<%= info1.getPHONE() %>";
+    }
+
+
+</script>
+
+	
+	
 
 	<table width="650" align="center">
-		<tr>
-			<th width="400" height="50" align="left" colspan="2">
-				<h2>배송지 정보</h2>
-			</th>
-		</tr>
-
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left" style="width: 130px;">* 배송지 정보</td>
-			<td>직접 입력<input type="radio" name="gender" value="man">
-				주문자 정보와 동일<input type="radio" name="gender" value="woman">
-			</td>
-		</tr>
-
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">* 받으실분</td>
-			<td><input class="delevery-text" name="name" type="text"></td>
-		</tr>
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">* 주소</td>
-			<td><input class="delevery-text" name="ad" type="text"
-				maxlength="30"> <input type="submit" value="주소찾기"><br>
-				<input class="delevery-text" name="ad-detail" type="text"
-				placeholder="상세 주소를 입력하세요"></td>
-		</tr>
-
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">* 휴대폰번호</td>
-			<td><input class="delevery-text" name="ph" type="text"
-				maxlength="10"></td>
-		</tr>
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">전화번호</td>
-			<td><input class="delevery-text" name="ph" type="text"
-				maxlength="10"></td>
-		</tr>
-		<tr bgcolor="whitesmoke" height="50">
-			<td align="left">배송메모</td>
-			<td><textarea cols="45" rows="5"></textarea></td>
-		</tr>
+	    <tr>
+	        <th width="400" height="50" align="left" colspan="2">
+	            <h2>배송지 정보</h2>
+	        </th>
+	    </tr>
+	
+	    <tr bgcolor="whitesmoke" height="50">
+	        <td align="left" style="width: 130px;">* 배송지 정보</td>
+	        <td>
+	            직접 입력 <input type="radio" name="delivery" value="manual">
+	            주문자 정보와 동일 <input type="radio" name="delivery" value="same" id="same-info-btn" onclick="fillDeliveryInfo()">
+	        </td>
+	    </tr>
+	
+	    <tr bgcolor="whitesmoke" height="50">
+	        <td align="left">* 받으실분</td>
+	        <td><input class="delevery-text" id="receiver-name" name="name" type="text"></td>
+	    </tr>
+	    <tr bgcolor="whitesmoke" height="50">
+	        <td align="left">* 주소</td>
+	        <td>
+	            <input class="delevery-text" id="receiver-address" name="ad" type="text" maxlength="30"> 
+	            <input type="submit" value="주소찾기"><br>
+	            <input class="delevery-text" id="receiver-address-detail" name="ad-detail" type="text" placeholder="상세 주소를 입력하세요">
+	        </td>
+	    </tr>
+	    <tr bgcolor="whitesmoke" height="50">
+	        <td align="left">* 휴대폰번호</td>
+	        <td><input class="delevery-text" id="receiver-phone" name="ph" type="text" maxlength="10"></td>
+	    </tr>
+	    <tr bgcolor="whitesmoke" height="50">
+	        <td align="left">배송메모</td>
+	        <td><textarea id="receiver-memo" cols="45" rows="5"></textarea></td>
+	    </tr>
 	</table>
+
 
 	<table width="650" align="center">
 		<tr>
@@ -163,10 +175,34 @@
     </tr>
     <tr>
         <td>
-            <a href="#"><button class="buy-btn">결제하기</button></a>
+            <a href="#"><button id="btnPayment">결제하기</button></a>
         </td>
     </tr>
 </table>
+			<a href="buy.jsp?p_id=<%= request.getParameter("p_id") %>"><button class="ping">구라핑</button></a>
+
+<script>
+    $('#btnPayment').on('click', function (event) {
+        let obj = {};
+        obj.clientKey = "test_DF55F29DA654A8CBC0F0A9DD4B556486";
+        obj.PCD_PAY_TYPE = "card";
+        obj.PCD_PAY_WORK = "CERT";
+        obj.PCD_CARD_VER = "02";
+        obj.PCD_PAY_GOODS = "테스트 상품";
+        obj.PCD_PAY_TOTAL = 1000;
+        obj.PCD_RST_URL = "/result";
+        PaypleCpayAuthCheck(obj);
+    });
+    
+    function getResult(params) {
+        if (params.PCD_PAY_RESULT === 'success'){
+            <!-- server side로 결제 승인요청 구현 -->
+        }
+        else {
+            <!-- 결제 실패 페이지 렌더링 -->
+        }
+    }
+</script>
 
 <script>
     let careServiceAdded = false; // 케어서비스 추가 여부를 추적하는 변수
@@ -193,5 +229,4 @@
         }
     }
 </script>
-
 </html>

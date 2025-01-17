@@ -72,7 +72,7 @@
   font-size: 13px;
 }
 
-.buy-btn>a{
+#btnPayment>a{
   color: black;
 }
 
@@ -80,7 +80,7 @@
   color: black;
 }
 
-.buy-btn {
+#btnPayment {
 	color: white;
     background: #000000;
     padding: 5px 20px;
@@ -88,4 +88,9 @@
     margin-left: 270px;
     font-size: 18px;
     border-radius : 4px;
+}
+
+.ping {
+	background: white;
+	color : white;
 }

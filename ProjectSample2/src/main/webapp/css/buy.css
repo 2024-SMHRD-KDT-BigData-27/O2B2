@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+.payment-pop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.payment-popup-container {
+  position: fixed;
+  width: 300px;
+  background-color: #ffffffce;
+  border: 1.5px solid #7c7c7c;
+  border-radius: 1px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  position: relative; /* 추가된 속성 */
+/*   margin-left: 550px;
+  margin-bottom: 550px; */
+}
+
+.payment-popup-header {
+  margin-top: -20px;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  background-color: #9b9b9b;
+  padding: 5px 30px;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+.checkmark-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px; /* 동그라미 크기 */
+  height: 70px; /* 동그라미 크기 */
+  background-color: #00cc072c; /* 초록색 배경 */
+  border-radius: 50%; /* 원형 모양 */
+  margin: 0 auto 10px; /* 정렬 및 간격 */
+  margin-bottom: 15px;
+}
+
+.checkmark {
+  font-size: 30px;
+  color: #464646;
+  margin-bottom: 10px;
+}
+
+.payment-popup-message {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.confirm-button {
+  display: inline-block;
+  padding: 5px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #005fc4;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.confirm-button:hover {
+  background-color: #007bffce;
+}
