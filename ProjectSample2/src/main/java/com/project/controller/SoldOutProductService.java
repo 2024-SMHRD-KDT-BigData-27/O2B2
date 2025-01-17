@@ -1,6 +1,8 @@
 package com.project.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,6 +14,7 @@ import com.project.model.DealDAO;
 import com.project.model.DealDTO;
 import com.project.model.ProductDAO;
 import com.project.model.userDTO;
+import com.project.model.ProductDTO;
 
 @WebServlet("/SoldOutProductService")
 public class SoldOutProductService extends HttpServlet {
@@ -37,6 +40,7 @@ public class SoldOutProductService extends HttpServlet {
 		
 		
 		response.sendRedirect("main.jsp");
-	}
 
+   }
+	
 }

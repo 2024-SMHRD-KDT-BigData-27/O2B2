@@ -48,7 +48,7 @@
 						<td onclick="location.href='Product_Details.jsp?p_id=<%=Double.toString(item.getPRODUCT_ID())%>'"><%=pro.getPROD_NAME()%></td>
 						<td><%=pro.getPROD_PRICE()%>원</td>
 					<td>
-						<a href="DeleteCart?cart_id=<%= item.getCart_ID() %>"><button class="cart-btn">삭제</button></a>
+						<a href="DeleteCart?cart_id=<%= item.getCart_ID() %>"><button type="button" class="cart-btn">삭제</button></a>
 					</td>
 				</tr>
 					<%
