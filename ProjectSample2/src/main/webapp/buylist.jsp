@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,7 +20,30 @@
             <div class="column">ITEM</div>
             <div class="column">PRICE</div>
           </div>
-           <!-- 데이터 행 -->
+          <%
+          userDTO info1 = (userDTO) session.getAttribute("info");
+          
+          DealDAO dao = new DealDAO();
+          ProductDAO pro_dao = new ProductDAO();
+          
+          ArrayList<DealDTO> list = dao.findList(info1.getID());
+          
+          for(DealDTO deal : list){
+        	  ProductDTO item = pro_dao.proDetail(deal.getPRODUCT_ID());
+          
+          %>
+        	 <div class="purchase-row">
+            <div class="column"><%= deal.getCREATE_DT() %></div>
+            <div class="column"><img src="<%= item.getPROD_IMG() %>" alt="상품 이미지"></div>
+            <div class="column"><%= item.getPROD_NAME() %></div>
+            <div class="column"><%= deal.getDEAL_AMOUNT() %></div>
+          </div>
+        	 
+        	  
+          <%}%><!-- 
+          <div>
+          </div>
+           데이터 행
            <div class="purchase-row">
             <div class="column">2021. 12. 6<br>9775170</div>
             <div class="column"><img src="https://cafe24.poxo.com/ec01/ozkiz1/nNeg99/vhxo94LClnrIwxcbQ2DM5mB+WDgus0cLbY6CrxB9vH5ITjuRA0ZtJKIQoRNVpTWyMJwMt2XoO9zk8+A==/_/web/product/big/202205/81eb0d97b5b3af2d6892828511629ff4.jpg" alt="상품 이미지"></div>
@@ -43,7 +67,7 @@
             <div class="column"><img src="https://gdimg.gmarket.co.kr/3399955182/still/280?ver=1702826064" alt="상품 이미지"></div>
             <div class="column">블루 코트 드레스 WRAP CARCOAT<br>BALENCIAGA</div>
             <div class="column">130,000원</div>
-          </div>
+          </div> -->
         </div>
 </body>
 </html>

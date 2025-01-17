@@ -179,7 +179,7 @@
         </td>
     </tr>
 </table>
-			<a href="buy.jsp?p_id=<%= request.getParameter("p_id") %>"><button class="ping">구라핑</button></a>
+			<a id="buybtn" href="buy.jsp?p_id=<%= request.getParameter("p_id") %>&totalPrice=<%= totalPrice%>"><button class="ping">구라핑</button></a>
 
 <script>
     $('#btnPayment').on('click', function (event) {
@@ -211,6 +211,7 @@
     function addCareService() {
         const careServiceElement = document.getElementById("care-service");
         const totalPriceElement = document.getElementById("total-price");
+        const buybtn = document.getElementById("buybtn");
 
         if (!careServiceAdded) {
             // 케어서비스 금액을 표시하고, 총금액을 업데이트
@@ -220,12 +221,15 @@
             const tocarePrice = <%= tocarePrice %>; // 총금액 + 케어서비스 가격
             totalPriceElement.innerText = `총금액 : \${tocarePrice}`; // 업데이트된 총금액 표시
             careServiceAdded = true; // 케어서비스 추가됨 표시
+            buybtn.href = `buy.jsp?p_id=<%= request.getParameter("p_id") %>&totalPrice=<%= tocarePrice%>`;
+            
         } else {
             // 케어서비스 제거하고, 총금액을 원래대로 되돌림
             careServiceElement.style.display = "none";
             const totalPrice = <%= totalPrice %>; // JSP에서 가져온 주문금액
             totalPriceElement.innerText = `총금액 : \${totalPrice}`; // 원래의 총금액으로 되돌림
             careServiceAdded = false; // 케어서비스 제거됨 표시
+            buybtn.href = `buy.jsp?p_id=<%= request.getParameter("p_id") %>&totalPrice=<%= totalPrice%>`;
         }
     }
 </script>

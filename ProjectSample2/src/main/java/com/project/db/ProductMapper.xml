@@ -87,4 +87,14 @@
 	<update id="sold-out" parameterType="String">
 		update PRODUCT_INFO set SOLD_YN = 'Y'  where PROD_ID = #{p_id} 
 	</update>
+	
+	<insert id="add-deal" parameterType="com.project.model.DealDTO">
+		insert into DEAL_INFO values(DEAL_INFO_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, #{DEAL_AMOUNT}, sysdate)
+	</insert>
+	
+	<select id="deal-list" parameterType="String" resultType="com.project.model.DealDTO">
+		select * from DEAL_INFO where ID=#{id}
+	</select>
+	
+	
 </mapper>
