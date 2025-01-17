@@ -84,4 +84,7 @@
 		delete from CART_LIST where Cart_ID = #{cart_id}
 	</delete>
 	
+	<update id="sold-out" parameterType="String">
+		update PRODUCT_INFO set SOLD_YN = 'Y'  where PROD_ID = #{p_id} 
+	</update>
 </mapper>

@@ -88,4 +88,11 @@ public class ProductDAO {
 		return list;
 	}
 	
+	public void soldOut(String p_id) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		sqlSession.update("sold-out", p_id);
+		sqlSession.close();
+		
+	}
 }

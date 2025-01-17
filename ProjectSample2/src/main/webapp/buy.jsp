@@ -17,7 +17,7 @@
         <div class="checkmark">✔</div>
     </div>
     <div class="payment-popup-message">구매가 완료되었습니다.</div>
-    <button class="confirm-button" onclick="redirect()">확인</button>
+    <a href="SoldOutProductService?p_id=<%= request.getParameter("p_id") %>"><button class="confirm-button" onclick="redirect()">확인</button></a>
 </div>
 </div>
 
