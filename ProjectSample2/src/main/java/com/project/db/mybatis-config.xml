@@ -26,5 +26,6 @@
     <mapper resource="com/project/db/UserMapper.xml"/>
     <mapper resource="com/project/db/ProductMapper.xml"/>
     <mapper resource="com/project/db/CommentMapper.xml"/>
+    <mapper resource="com/project/db/CalenderMapper.xml"/>
   </mappers>
 </configuration>
