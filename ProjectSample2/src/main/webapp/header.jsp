@@ -16,8 +16,10 @@
 		<div class="header-container">
 			<a href="main.jsp"><h1 class="logo">👶🏻 PINKBEBE</h1></a>
 			<div>
-				<input type="text" class="search-bar" placeholder="Search">
-				<button class="search">검색 🔍</button>
+				<form action="searchByName.jsp">
+					<input type="text" class="search-bar" placeholder="Search" name="search">
+					<button type="submit" class="search">검색 🔍</button>
+				</form>
 			</div>
 			<div class="user-options">
 				<%
@@ -31,9 +33,8 @@
 				<%
 				} else {
 				%>
-		
-				<a href="calender.jsp">📆마이캘린더</a>
-				<a href="cart_container.jsp">🛒장바구니</a>
+
+				<a href="calender.jsp">📆마이캘린더</a> <a href="cart_container.jsp">🛒장바구니</a>
 				<div class="dropdown">
 					<button class="dropdown-button">마이페이지</button>
 					<div class="dropdown-content">

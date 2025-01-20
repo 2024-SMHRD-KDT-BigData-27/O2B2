@@ -2,99 +2,160 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.project.db.ProductMapper">
 	<insert id="regist" parameterType="com.project.model.ProductDTO">
-		insert into PRODUCT_INFO values(PRO_SEQ.NEXTVAL, #{PROD_NAME}, #{PROD_IMG}, #{PROD_PRICE}, #{PROD_DELIVERY_FEE},
-		TO_DATE(#{BUY_DATE} || '-01', 'YYYY-MM-DD'), #{USE_PERIOD}, #{PROD_STATE}, #{PROD_REVIEW}, #{TO_GENDER}, #{MIN_AGE}, #{MAX_AGE}, 'N', #{SELLER_ID}, #{PROD_CATEGORY})
+		insert into PRODUCT_INFO
+		values(PRO_SEQ.NEXTVAL, #{PROD_NAME}, #{PROD_IMG}, #{PROD_PRICE},
+		#{PROD_DELIVERY_FEE},
+		TO_DATE(#{BUY_DATE} || '-01', 'YYYY-MM-DD'),
+		#{USE_PERIOD}, #{PROD_STATE}, #{PROD_REVIEW}, #{TO_GENDER},
+		#{MIN_AGE}, #{MAX_AGE}, 'N', #{SELLER_ID}, #{PROD_CATEGORY})
 	</insert>
-	
+
 	<insert id="add-wish" parameterType="com.project.model.WishDTO">
-		insert into WISH_LIST values(WISH_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, sysdate)
+		insert into WISH_LIST
+		values(WISH_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, sysdate)
 	</insert>
-	
-	<select id="pro-list" parameterType="String" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SELLER_ID = #{id} order by PROD_ID
+
+	<select id="pro-list" parameterType="String"
+		resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SELLER_ID = #{id} order by
+		PROD_ID
 	</select>
-	
-	<select id="pro-detail" parameterType="String" resultType="com.project.model.ProductDTO">
+
+	<select id="pro-detail" parameterType="String"
+		resultType="com.project.model.ProductDTO">
 		select * from PRODUCT_INFO where PROD_ID = #{id}
 	</select>
-	
-	<select id="wish-list" parameterType="String" resultType="com.project.model.WishDTO">
+
+	<select id="wish-list" parameterType="String"
+		resultType="com.project.model.WishDTO">
 		select * from WISH_LIST where ID = #{id}
 	</select>
-	
+
 	<select id="pro-main" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SOLD_YN = 'N' order by PROD_ID DESC
-	</select>
-	
-	<select id="pro-category" parameterType="String" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} order by PROD_ID DESC
+		select * from PRODUCT_INFO
+		where SOLD_YN = 'N' order by PROD_ID DESC
 	</select>
 
-	<select id="pro-category-gender" parameterType="HashMap" resultType="com.project.model.ProductDTO">
-		select * from PRODUCT_INFO where SOLD_YN = 'N' and PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID DESC
+	<select id="pro-category" parameterType="String"
+		resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N' and
+		PROD_CATEGORY = #{category} order by PROD_ID DESC
 	</select>
-	
-	<insert id="cart_container" parameterType="com.project.model.CartDTO">
-		insert into CART_LIST values(CART_LIST_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, sysdate)
+
+	<select id="pro-category-gender" parameterType="HashMap"
+		resultType="com.project.model.ProductDTO">
+		select * from PRODUCT_INFO where SOLD_YN = 'N' and
+		PROD_CATEGORY = #{category} and TO_GENDER = #{gender} order by PROD_ID
+		DESC
+	</select>
+
+	<insert id="cart_container"
+		parameterType="com.project.model.CartDTO">
+		insert into CART_LIST values(CART_LIST_SEQ.NEXTVAL,
+		#{PRODUCT_ID}, #{ID}, sysdate)
 	</insert>
-	
-	
-	<select id="pro-filter" resultType="com.project.model.ProductDTO">
-        SELECT * 
-        FROM PRODUCT_INFO
-        WHERE 1=1
-        <!-- 성별 조건 -->
-        <if test="genders != null and genders.size() > 0">
-            AND TO_GENDER IN
-            <foreach collection="genders" item="gender" open="(" separator="," close=")">
-                #{gender}
-            </foreach>
-        </if>
-        <!-- 상품 상태 조건 -->
-        <if test="states != null and states.size() > 0">
-            AND PROD_STATE IN
-            <foreach collection="states" item="state" open="(" separator="," close=")">
-                #{state}
-            </foreach>
-        </if>
-        <!-- 연령 조건 -->
-        <if test="ageMin != null">
-            AND #{ageMin} &lt;= MIN_AGE
-        </if>
-        <if test="ageMax != null">
-            AND #{ageMax} &gt;= MAX_AGE
-        </if>
-        
-	 <where>
-	    <if test="priceMin != null">
-	        AND PROD_PRICE &gt;= #{priceMin}
-	    </if>
-	    <if test="priceMax != null">
-	        AND PROD_PRICE &lt;= #{priceMax}
-	    </if>
-	</where>
 
-    </select>
-    
-    <select id="cart-list" parameterType="String" resultType="com.project.model.CartDTO">
-    	select * from CART_LIST where ID = #{id}
-    </select>
-	
+
+	<select id="pro-filter" parameterType="Map"
+		resultType="com.project.model.ProductDTO">
+		SELECT *
+		FROM PRODUCT_INFO
+		WHERE SOLD_YN = 'N'
+		<!-- 성별 조건 -->
+		<if test="genders != null and genders.size() > 0">
+			AND TO_GENDER IN
+			<foreach collection="genders" item="gender" open="("
+				separator="," close=")">
+				#{gender}
+			</foreach>
+		</if>
+		<!-- 상품 상태 조건 -->
+		<if test="states != null and states.size() > 0">
+			AND PROD_STATE IN
+			<foreach collection="states" item="state" open="("
+				separator="," close=")">
+				#{state}
+			</foreach>
+		</if>
+		<!-- 연령 조건 -->
+		<if test="ageMin != null">
+			AND #{ageMin} &lt;= MIN_AGE
+		</if>
+		<if test="ageMax != null">
+			AND #{ageMax} &gt;= MAX_AGE
+		</if>
+		<if test="priceMin != null">
+			AND PROD_PRICE &gt;= #{priceMin}
+		</if>
+		<if test="priceMax != null">
+			AND PROD_PRICE &lt;= #{priceMax}
+		</if>
+
+		ORDER BY PROD_ID DESC
+	</select>
+
+	<select id="cart-list" parameterType="String"
+		resultType="com.project.model.CartDTO">
+		select * from CART_LIST where ID = #{id}
+	</select>
+
 	<delete id="delete-cart" parameterType="String">
-		delete from CART_LIST where Cart_ID = #{cart_id}
+		delete from CART_LIST
+		where Cart_ID = #{cart_id}
 	</delete>
-	
+
 	<update id="sold-out" parameterType="String">
-		update PRODUCT_INFO set SOLD_YN = 'Y'  where PROD_ID = #{p_id} 
+		update PRODUCT_INFO set
+		SOLD_YN = 'Y' where PROD_ID = #{p_id}
 	</update>
-	
+
 	<insert id="add-deal" parameterType="com.project.model.DealDTO">
-		insert into DEAL_INFO values(DEAL_INFO_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, #{DEAL_AMOUNT}, sysdate)
+		insert into DEAL_INFO
+		values(DEAL_INFO_SEQ.NEXTVAL, #{PRODUCT_ID}, #{ID}, #{DEAL_AMOUNT},
+		sysdate)
 	</insert>
-	
-	<select id="deal-list" parameterType="String" resultType="com.project.model.DealDTO">
+
+	<select id="deal-list" parameterType="String"
+		resultType="com.project.model.DealDTO">
 		select * from DEAL_INFO where ID=#{id}
 	</select>
-	
-	
+
+	<select id="pro-Recommendation" parameterType="Map"
+		resultType="com.project.model.ProductDTO">
+		SELECT *
+		FROM PRODUCT_INFO
+		WHERE SOLD_YN = 'N'
+		AND (TO_GENDER = 'N'
+		<if test="genders != null and genders.length > 0">
+			OR TO_GENDER IN
+			<foreach collection="genders" item="gender" open="("
+				separator="," close=")">
+				#{gender}
+			</foreach>
+		</if>
+		)
+		<if test="ages != null and ages.length > 0">
+			AND (
+			<foreach collection="ages" item="age" separator="OR">
+				(MIN_AGE
+				&lt;= #{age} AND #{age} &lt;= MAX_AGE)
+			</foreach>
+			)
+		</if>
+		ORDER BY PROD_ID DESC
+	</select>
+
+
+	<select id="searchByName" parameterType="String"
+		resultType="com.project.model.ProductDTO">
+		SELECT *
+		FROM PRODUCT_INFO
+		WHERE SOLD_YN = 'N'
+
+		<!-- name 컬럼에서 특정 문자열을 포함하는 조건 -->
+		AND PROD_NAME LIKE '%' || #{name} || '%'
+
+		ORDER BY PROD_ID DESC
+	</select>
+
 </mapper>

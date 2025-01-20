@@ -95,6 +95,25 @@ public class ProductDAO {
 		sqlSession.close();
 		
 	}
+
+	public ArrayList<ProductDTO> commendation(Map<String, Object> params) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList) sqlSession.selectList("pro-Recommendation", params);
+
+		sqlSession.close();
+		
+		return list;
+	}
+	
+	public ArrayList<ProductDTO> searchByName(String name) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<ProductDTO> list = (ArrayList) sqlSession.selectList("searchByName", name);
+
+	    return list;
+	}
+	
 	
 	
 	

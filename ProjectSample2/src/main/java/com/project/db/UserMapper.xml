@@ -19,4 +19,8 @@
 	<select id="find-name" parameterType="String" resultType="String">
 		select NAME from USER_INFO where ID=#{id}
 	</select>
+	
+	<select id="find-child" parameterType="String" resultType="com.project.model.childDTO">
+		select * from CHILDREN_INFO where PARENT_ID = #{parent_id}
+	</select>
 </mapper>

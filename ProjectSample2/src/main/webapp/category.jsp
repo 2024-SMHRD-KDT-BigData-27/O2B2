@@ -49,7 +49,7 @@
                         <a href="main.jsp?category=헬맷">헬멧</a>
           	</div>
           	</div>
-            <a href="#" class="dropdown">나만의 상품 💗</a>
+            <a href="Commendation" class="dropdown">나만의 상품 💗</a>
            
             <div class="dropdown">
                 <button class="dropdown-button">여아의류</button>

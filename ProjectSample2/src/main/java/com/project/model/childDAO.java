@@ -1,5 +1,7 @@
 package com.project.model;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -17,6 +19,16 @@ public class childDAO {
 		
 		return cnt;
 
+	}
+	
+	public ArrayList<childDTO> findChild(String parent_id){
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		ArrayList<childDTO> list = (ArrayList)sqlSession.selectList("find-child", parent_id);
+		
+		sqlSession.close();
+		
+		return list;
 	}
 
 }
