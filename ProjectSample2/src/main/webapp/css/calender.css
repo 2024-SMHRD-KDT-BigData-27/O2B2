@@ -87,3 +87,50 @@
   #closeModal:hover {
     background-color: #8d8d8d;
   }
+  
+#editModal {
+    display: none; /* 초기 상태는 숨김 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* 모달 너비 */
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+#editCont {
+    margin: 0; /* 내부 여백 제거 */
+}
+
+#editModal h3 {
+    margin-top: 0;
+}
+
+#editModal textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#editModal button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #5b7d9e;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editModal button:hover {
+    background-color: #5c5c5c;
+}
