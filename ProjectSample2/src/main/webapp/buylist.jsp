@@ -31,13 +31,12 @@
           
           for(DealDTO deal : list){
         	  ProductDTO item = pro_dao.proDetail(deal.getPRODUCT_ID());
-          
           %>
         	 <div class="purchase-row">
             <div class="column"><%= deal.getCREATE_DT() %></div>
             <div class="column"><img src="<%= item.getPROD_IMG() %>" alt="상품 이미지"></div>
             <div class="column"><%= item.getPROD_NAME() %></div>
-            <div class="column"><%= deal.getDEAL_AMOUNT() %></div>
+            <div class="column"><%= (long) deal.getDEAL_AMOUNT().doubleValue() %>원</div>
           </div>
         	 
         	  
