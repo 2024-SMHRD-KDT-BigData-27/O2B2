@@ -55,20 +55,20 @@
                 <button class="dropdown-button">여아의류</button>
                 <div class="dropdown-content">
                     <a href="main.jsp?category=상의&gender=W">상의</a>
-                    <a href="#">하의</a>
-                    <a href="#">상/하의 세트</a>
-                    <a href="#">실내복</a>
-                    <a href="#">바디수트</a>
+                    <a href="main.jsp?category=하의&gender=W">하의</a>
+                    <a href="main.jsp?category=상/하의 세트&gender=W">상/하의 세트</a>
+                    <a href="main.jsp?category=실내복&gender=W">실내복</a>
+                    <a href="main.jsp?category=바디수트&gender=W">바디수트</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropdown-button">남아의류</button>
                 <div class="dropdown-content">
-                    <a href="#">상의</a>
-                    <a href="#">하의</a>
-                    <a href="#">상/하의 세트</a>
-                    <a href="#">실내복</a>
-                    <a href="#">바디수트</a>
+                    <a href="main.jsp?category=상의&gender=M">상의</a>
+                    <a href="main.jsp?category=하의&gender=M">하의</a>
+                    <a href="main.jsp?category=상/하의 세트&gender=M">상/하의 세트</a>
+                    <a href="main.jsp?category=실내복&gender=M">실내복</a>
+                    <a href="main.jsp?category=바디수트&gender=M">바디수트</a>
                 </div>
             </div>
             <div class="dropdown">

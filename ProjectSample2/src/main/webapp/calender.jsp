@@ -37,6 +37,7 @@
 
 	<div id="editModal" style="display: none;">
 		<form action="UpdateCalenderService">
+			<div class="Cont">
 			<div id="editCont">
 				<h3>일정 수정/삭제</h3>
 				<input type="hidden" id="editId" name="calId">
@@ -52,6 +53,7 @@
 				<a id="deleteButton" href="#"><button type="button">삭제</button></a>
 				&ensp;
 				<button type="button" onclick="fEditClose()">닫기</button>
+				</div>
 			</div>
 		</form>
 	</div>
