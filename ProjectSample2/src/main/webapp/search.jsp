@@ -36,8 +36,8 @@
 
             <h3>가격</h3>
             <div class="range-group">
-                <input type="number" name="price_min"  min="0">만원~
-                <input type="number" name="price_max"  min="0">만원
+                <input type="number" name="price_min"  min="0">원~
+                <input type="number" name="price_max"  min="0">원
             </div>
 
             <button type="submit" class="search-button">검색</button>

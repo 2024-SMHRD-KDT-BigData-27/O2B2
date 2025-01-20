@@ -23,4 +23,8 @@
 	<select id="find-child" parameterType="String" resultType="com.project.model.childDTO">
 		select * from CHILDREN_INFO where PARENT_ID = #{parent_id}
 	</select>
+	
+	<update id="update-info" parameterType="com.project.model.userDTO">
+		update USER_INFO set NAME=#{NAME}, ADDRESS = #{ADDRESS}, DETAILED_ADDRESS = #{DETAILED_ADDRESS}, PHONE=#{PHONE}, EMAIL=#{EMAIL} where ID = #{ID} 
+	</update>
 </mapper>

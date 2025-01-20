@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,90 +27,105 @@
 	}
 </script>
 <title>revise</title>
-<link href="${pageContext.request.contextPath}/css/revise.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/revise.css"
+	rel="stylesheet" type="text/css">
 </head>
 <body style="overflow: scroll;">
-	<%@include file="category.jsp" %>
-	<% userDTO info1 = (userDTO) session.getAttribute("info"); %>
-	
-	<h1 id="calender-header" align="center">회원정보수정</h1>
-    <hr class="line">
+	<%@include file="category.jsp"%>
+	<%
+	userDTO info1 = (userDTO) session.getAttribute("info");
+	%>
 
-<script>
+	<h1 id="calender-header" align="center">회원정보수정</h1>
+	<hr class="line">
+
+	<script>
     // 사용자 정보를 자동으로 입력 필드에 채우는 함수
     window.onload = function () {
         // 서버에서 전달된 사용자 정보
-        document.getElementById("form").id.value = "<%= info1.getID() %>";
-        document.getElementById("form").pw.value = "<%= info1.getPW() %>";
-        document.getElementById("form").name.value = "<%= info1.getNAME() %>";
-        document.getElementById("roadAddrPart1").value = "<%= info1.getADDRESS() %>";
-        document.getElementById("addrDetail").value = "<%= info1.getDETAILED_ADDRESS() %>";
-        document.getElementById("ph").value = "<%= info1.getPHONE() %>";
-        document.getElementById("eamil").value = "<%= info1.getEMAIL() %>";
+        document.getElementById("form").id.value = "<%=info1.getID()%>";
+        document.getElementById("form").pw.value = "<%=info1.getPW()%>";
+        document.getElementById("form").name.value = "<%=info1.getNAME()%>";
+        document.getElementById("roadAddrPart1").value = "<%=info1.getADDRESS()%>";
+        document.getElementById("addrDetail").value = "<%=info1.getDETAILED_ADDRESS()%>";
+        document.getElementById("ph").value = "<%=info1.getPHONE()%>";
+        document.getElementById("eamil").value = "<%=info1.getEMAIL()%>";
     };
 </script>
 
-<form name="form" id="form" action="JoinService">
-    <div class="table-form" align="center">
-        	<p>아이디 비밀번호는 수정불가합니다 </p>
-        <table class="table" width="650" align="center">
-            <tr height="50">
-                <td align="left">* 아이디</td>
-                <td><input class="register-text1" name="id" type="text" readonly></td>
-            </tr>
-            <tr height="50">
-                <td align="left">* 비밀번호</td>
-                <td><input name="pw" class="register-text1" type="password" maxlength="10" readonly></td>
-            </tr>
-            <tr height="50">
-                <td align="left">이름</td>
-                <td><input class="register-text" name="name" type="text" maxlength="10"></td>
-            </tr>
-            <tr height="50">
-                <td>주소</td>
-                <td>
-                    <p>우편번호</p>
-                    <input class="register-text" type="hidden" id="confmKey" name="confmKey" value="">
-                    <input class="register-text" type="text" id="zipNo" name="zipNo" readonly style="width: 100px">
-                    <input type="button" value="주소검색" onclick="goPopup();"><br>
-                    <p>도로명주소</p>
-                    <input class="register-text" type="text" id="roadAddrPart1" name="ad" style="width: 85%"><br>
-                    <p>상세주소</p>
-                    <input class="register-text" type="text" id="addrDetail" name="ad-detail" style="width: 40%" value="">
-                    <input class="register-text" type="text" id="roadAddrPart2" style="width: 40%" value="">
-                </td>
-            </tr>
-            <tr height="50">
-                <td align="left">휴대전화</td>
-                <td><input class="register-text" name="ph" id="ph" type="text" maxlength="10"></td>
-            </tr>
-            <tr height="50">
-                <td align="left">이메일</td>
-                <td><input class="register-text" name="email" id="eamil" type="text" maxlength="10"></td>
-            </tr>
-        </table>
-    </div>
+	<form name="form" id="form" action="RevieseService">
+		<div class="table-form" align="center">
+			<p>아이디 비밀번호는 수정불가합니다</p>
+			<table class="table" width="650" align="center">
+				<tr height="50">
+					<td align="left">* 아이디</td>
+					<td><input class="register-text1" name="id" type="text"
+						readonly></td>
+				</tr>
+				<tr height="50">
+					<td align="left">* 비밀번호</td>
+					<td><input name="pw" class="register-text1" type="password"
+						maxlength="10" readonly></td>
+				</tr>
+				<tr height="50">
+					<td align="left">이름</td>
+					<td><input class="register-text" name="name" type="text"
+						maxlength="10"></td>
+				</tr>
+				<tr height="50">
+					<td>주소</td>
+					<td>
+						<p>우편번호</p> <input class="register-text" type="hidden"
+						id="confmKey" name="confmKey" value=""> <input
+						class="register-text" type="text" id="zipNo" name="zipNo" readonly
+						style="width: 100px"> <input type="button" value="주소검색"
+						onclick="goPopup();"><br>
+						<p>도로명주소</p> <input class="register-text" type="text"
+						id="roadAddrPart1" name="ad" style="width: 85%"><br>
+						<p>상세주소</p> <input class="register-text" type="text"
+						id="addrDetail" name="ad-detail" style="width: 40%" value="">
+						<input class="register-text" type="text" id="roadAddrPart2"
+						style="width: 40%" value="">
+					</td>
+				</tr>
+				<tr height="50">
+					<td align="left">휴대전화</td>
+					<td><input class="register-text" name="ph" id="ph" type="text"
+						maxlength="10"></td>
+				</tr>
+				<tr height="50">
+					<td align="left">이메일</td>
+					<td><input class="register-text" name="email" id="eamil"
+						type="text" maxlength="10"></td>
+				</tr>
+			</table>
+		</div>
 
-    <span style="width: 650px; font-weight: 1000;">자녀 정보</span>
+		<span style="width: 650px; font-weight: 1000;">자녀 정보</span>
 
-    <div id="child-container">
-        <table id="child-entry" class="table table-form" width="650" align="center">
-            <tr height="50">
-                <td align="left" style="width: 130px;">아이 성별</td>
-                <td>남<input type="radio" name="child-gender1" value="man"> 여<input type="radio" name="child-gender1" value="woman"></td>
-            </tr>
-            <tr height="50">
-                <td align="left">아이 출생</td>
-                <td><input class="register-text" id="child-age1" type="date" name="child-age1" min="0"> 살</td>
-            </tr>
-            <tr>
-                <td><button type="button" onclick="addChild();" class="add-button">+</button></td>
-            </tr>
-        </table>
-    </div>
-    <a href="main.jsp"><input class="finish" type="submit" value="완료"></a>
-</form>
-	
+		<div id="child-container">
+			<table id="child-entry" class="table table-form" width="650"
+				align="center">
+				<tr height="50">
+					<td align="left" style="width: 130px;">아이 성별</td>
+					<td>남<input type="radio" name="child-gender1" value="man">
+						여<input type="radio" name="child-gender1" value="woman"></td>
+				</tr>
+				<tr height="50">
+					<td align="left">아이 출생</td>
+					<td><input class="register-text" id="child-age1" type="date"
+						name="child-age1" min="0"> 살</td>
+				</tr>
+				<tr>
+					<td><button type="button" onclick="addChild();"
+							class="add-button">+</button></td>
+				</tr>
+			</table>
+		</div>
+		<button class="finish">완료</button>
+
+	</form>
+
 	<script language="javascript">
 		function addChild() {
 		    // JavaScript에서 childCount를 관리
@@ -154,7 +169,7 @@ document.getElementById('child-container').addEventListener('click', (event) => 
     }
 });
 </script>
-	
-	
+
+
 </body>
 </html>

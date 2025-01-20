@@ -44,5 +44,13 @@ public class userDAO {
 		
 		return name;
 	}
+	
+	public void updateInfo(userDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		String name = sqlSession.selectOne("update-info", dto);
+		sqlSession.close();
+		
+	}
 
 }
