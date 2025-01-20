@@ -26,29 +26,11 @@ public class FilterService extends HttpServlet {
 		String[] states = request.getParameterValues("state");
 
 		// 각 파라미터 값을 확인하고 null일 경우 기본값 설정
-		int age_min = 0; // 기본값
-		int age_max = 100; // 기본값
-		int price_min = 0; // 기본값
-		int price_max = 100000; // 기본값
-
-		try {
-		    if (request.getParameter("age_min") != null) {
-		        age_min = Integer.parseInt(request.getParameter("age_min"));
-		    }
-		    if (request.getParameter("age_max") != null) {
-		        age_max = Integer.parseInt(request.getParameter("age_max"));
-		    }
-		    if (request.getParameter("price_min") != null) {
-		        price_min = Integer.parseInt(request.getParameter("price_min"));
-		    }
-		    if (request.getParameter("price_max") != null) {
-		        price_max = Integer.parseInt(request.getParameter("price_max"));
-		    }
-		} catch (NumberFormatException e) {
-		    // 숫자로 변환하는 도중 오류가 발생한 경우 로그 출력
-		    System.out.println("Invalid number format: " + e.getMessage());
-		}
-
+		int age_min = parseIntOrDefault(request.getParameter("age_min"), 0);
+		int age_max = parseIntOrDefault(request.getParameter("age_max"), 1000);
+		int price_min = parseIntOrDefault(request.getParameter("price_min"), 0);
+		int price_max = parseIntOrDefault(request.getParameter("price_max"), 100000000);
+		
 		// genders 또는 states가 null인 경우 빈 배열로 초기화
 		List<String> genderList = (genders != null) ? List.of(genders) : new ArrayList<>();
 		List<String> stateList = (states != null) ? List.of(states) : new ArrayList<>();
@@ -80,6 +62,14 @@ public class FilterService extends HttpServlet {
 		// 결과 페이지로 리다이렉트
 		response.sendRedirect("filter_result.jsp");
 
+	}
+	
+	private int parseIntOrDefault(String value, int defaultValue) {
+	    try {
+	        return Integer.parseInt(value);
+	    } catch (NumberFormatException e) {
+	        return defaultValue;
+	    }
 	}
 	
 }
