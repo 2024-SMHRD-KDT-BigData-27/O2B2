@@ -5,10 +5,41 @@
 <head>
 <meta charset="UTF-8">
 <title>product_Registration</title>
+<script>
+	function loadFile(input) {
+		let file = input.files[0]; // 선택파일 가져오기
+
+		let newImage = document.createElement("img"); //새 이미지 태그 생성
+
+		//이미지 source 가져오기
+		newImage.src = URL.createObjectURL(file);
+		newImage.style.width = "100%"; //div에 꽉차게 넣으려고
+		newImage.style.height = "100%";
+		newImage.style.objectFit = "cover"; // div에 넘치지 않고 들어가게
+
+		//이미지를 image-show div에 추가
+		let container = document.getElementById('image-show');
+		container.appendChild(newImage);
+	}
+</script>
 <link
 	href="${pageContext.request.contextPath}/css/Product_Registration.css"
 	rel="stylesheet" type="text/css">
+<style>
+.addImage {
+	width: 400px;
+	height: 300px;
+	background-color: lightgray;
+	border-radius: 20px 20px/20px 20px;
+	overflow: hidden;
+	margin: 0px 10px 10px 0px;
+}
 
+.inputImg {
+	width: 450px;
+	height: 350px;
+}
+</style>
 </head>
 <body>
 	<%@include file="category.jsp"%>
@@ -21,6 +52,10 @@
 						<td class="product-image-cell">
 							<div class="product-image">
 								이미지 <input type="text" name="img">
+								<div class="addImage" id="image-show">
+									<!-- 이미지 띄울 공간 -->
+								</div>
+								<input type="file" accept="image/*" onchange="loadFile(this)">
 							</div>
 						</td>
 						<td class="product-info-cell">
@@ -54,78 +89,90 @@
 			<div class="details">
 				<h3 class="detail-comment">상세 내용 입력</h3>
 				<div>
-    <label for="purchaseDate">카테고리:</label>
-    <select name="category">
-        <optgroup label="여아의류">
-            <option>상의</option>
-            <option>하의</option>
-            <option>상/하의 세트</option>
-            <option>실내복</option>
-            <option>바디수트</option>
-        </optgroup>
-        <optgroup label="남아의류">
-            <option>상의</option>
-            <option>하의</option>
-            <option>상/하의 세트</option>
-            <option>실내복</option>
-            <option>바디수트</option>
-        </optgroup>
-        <optgroup label="침구류">
-            <option>이불</option>
-            <option>베개</option>
-            <option>쿠션</option>
-            <option>러그</option>
-            <option>담요</option>
-        </optgroup>
-        <optgroup label="액세서리">
-            <option>운동화</option>
-            <option>샌들</option>
-            <option>모자</option>
-            <option>가방</option>
-            <option>양말</option>
-            <option>장갑</option>
-        </optgroup>
-        <optgroup label="유아용품">
-            <option>유모차</option>
-            <option>카시트</option>
-            <option>아기의자</option>
-            <option>보행기</option>
-            <option>헬멧</option>
-        </optgroup>
-        	<option style="font-weight:bold">놀이용품</option>
-            <option style="font-weight:bold">도서</option>
-        
-    </select>
-</div>
+					<label for="purchaseDate">카테고리:</label> <select name="category">
+						<optgroup label="여아의류">
+							<option>상의</option>
+							<option>하의</option>
+							<option>상/하의 세트</option>
+							<option>실내복</option>
+							<option>바디수트</option>
+						</optgroup>
+						<optgroup label="남아의류">
+							<option>상의</option>
+							<option>하의</option>
+							<option>상/하의 세트</option>
+							<option>실내복</option>
+							<option>바디수트</option>
+						</optgroup>
+						<optgroup label="침구류">
+							<option>이불</option>
+							<option>베개</option>
+							<option>쿠션</option>
+							<option>러그</option>
+							<option>담요</option>
+						</optgroup>
+						<optgroup label="액세서리">
+							<option>운동화</option>
+							<option>샌들</option>
+							<option>모자</option>
+							<option>가방</option>
+							<option>양말</option>
+							<option>장갑</option>
+						</optgroup>
+						<optgroup label="유아용품">
+							<option>유모차</option>
+							<option>카시트</option>
+							<option>아기의자</option>
+							<option>보행기</option>
+							<option>헬멧</option>
+						</optgroup>
+						<option style="font-weight: bold">놀이용품</option>
+						<option style="font-weight: bold">도서</option>
 
-				<div><label for="purchaseDate">구매시기:</label> <input type="month"
-					id="purchaseDate" name="purchaseDate" required></div> 
-					<div><label
-					for="usagePeriod">실사용 기간 (개월):</label> <input type="number"
-					id="usagePeriod" name="usagePeriod" min="1" max="120" required></div>
+					</select>
+				</div>
 
-				<div><label for="productCondition">상품상태:</label> <select
-					id="p.roductCondition" name="productCondition" required>
-					<option value="새상품">새상품</option>
-					<option value="상">상</option>
-					<option value="중">중</option>
-					<option value="하">하</option>
-				</select></div> <br> 
-				<div><label for="review">상품후기:</label> <input type="text"
-					id="review" name="review" placeholder="상품 후기를 입력하세요..." required></div>
+				<div>
+					<label for="purchaseDate">구매시기:</label> <input type="month"
+						id="purchaseDate" name="purchaseDate" required>
+				</div>
+				<div>
+					<label for="usagePeriod">실사용 기간 (개월):</label> <input type="number"
+						id="usagePeriod" name="usagePeriod" min="1" max="120" required>
+				</div>
 
-				<div><label for="gender">성별:</label> <select id="gender"
-					name="gender" required>
-					<option value="M">남아</option>
-					<option value="W">여아</option>
-					<option value="N">무관</option>
-				</select></div>
-				 
-				<div class="age"><p style="color: #c0001c;">* 나이는 개월로 작성바랍니다.</p><label for="age">나이(개월):</label> <input type="number"
-					id="age" name="min-age" placeholder="예: 10" min="0"> ~ <input
-					type="number" id="age" name="max-age" placeholder="예: 36" min="0"></div>
+				<div>
+					<label for="productCondition">상품상태:</label> <select
+						id="p.roductCondition" name="productCondition" required>
+						<option value="새상품">새상품</option>
+						<option value="상">상</option>
+						<option value="중">중</option>
+						<option value="하">하</option>
+					</select>
+				</div>
 				<br>
-				<a href="selllist.jsp"><button class="btn1">상세 정보 저장</button></a>
+				<div>
+					<label for="review">상품후기:</label> <input type="text" id="review"
+						name="review" placeholder="상품 후기를 입력하세요..." required>
+				</div>
+
+				<div>
+					<label for="gender">성별:</label> <select id="gender" name="gender"
+						required>
+						<option value="M">남아</option>
+						<option value="W">여아</option>
+						<option value="N">무관</option>
+					</select>
+				</div>
+
+				<div class="age">
+					<p style="color: #c0001c;">* 나이는 개월로 작성바랍니다.</p>
+					<label for="age">나이(개월):</label> <input type="number" id="age"
+						name="min-age" placeholder="예: 10" min="0"> ~ <input
+						type="number" id="age" name="max-age" placeholder="예: 36" min="0">
+				</div>
+				<br> <a href="selllist.jsp"><button class="btn1">상세
+						정보 저장</button></a>
 			</div>
 		</div>
 	</form>
