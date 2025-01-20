@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.project.model.DealDAO;
+import com.project.model.DealDTO;
 import com.project.model.ProductDAO;
+import com.project.model.userDTO;
 import com.project.model.ProductDTO;
 
 @WebServlet("/SoldOutProductService")
@@ -19,23 +22,24 @@ public class SoldOutProductService extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String p_id = request.getParameter("p_id");
+		double totalPrice = Double.parseDouble(request.getParameter("totalPrice"));
 		
+		HttpSession session = request.getSession();
+		userDTO info = (userDTO) session.getAttribute("info");
+		DealDTO dto = new DealDTO();
+		
+		dto.setID(info.getID());
+		dto.setPRODUCT_ID(p_id);
+		dto.setDEAL_AMOUNT(totalPrice);
+		
+		DealDAO deal_dao = new DealDAO();
 		ProductDAO dao = new ProductDAO();
 		
 		dao.soldOut(p_id);
+		deal_dao.addDeal(dto);
+		
 		
 		response.sendRedirect("main.jsp");
-		HttpSession session = request.getSession();
-		ArrayList<ProductDTO> purchaseList = (ArrayList<ProductDTO>) session.getAttribute("purchaseList");
-		if (purchaseList == null) {
-			purchaseList = new ArrayList<>();
-		}
-		purchaseList.add(product);
-		session.setAttribute("purchaseList", purchaseList);
-		
-		// 구매 내역 페이지로 리다이렉트
-		response.sendRedirect("purchasePage.jsp");
-	}
 
    }
 	

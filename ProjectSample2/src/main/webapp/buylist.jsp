@@ -11,14 +11,7 @@
 </head>
 <body>
 	<%@include file="category.jsp" %>
-	<% 
-	userDTO info1 = (userDTO)session.getAttribute("info");
-	ProductDAO dao = new ProductDAO();
-	ArrayList<ProductDTO> list = new ArrayList<>(); // 제네릭 타입 명시
-	list.add(new ProductDTO());
-	ProductDTO product = list.get(0); // 안전하게 사용 가능
 
-	%>
 	<h2 class="page-title">구매내역</h2>
         <div class="purchase-container">
           <!-- 헤더 행 -->
@@ -28,18 +21,28 @@
             <div class="column">ITEM</div>
             <div class="column">PRICE</div>
           </div>
-           <!-- 데이터 행 -->
-           <div class="purchase-row">
-    <% 
-        for (ProductDTO product1 : list) {
-    %>
-        <div class="column">2021. 12. 6</div>
-        <div class="column"><img src="<%= product1.getPROD_IMG() %>" alt="상품 이미지"></div>
-        <div class="column"><%= product1.getPROD_NAME() %></div>
-        <div class="column"><%= product1.getPROD_PRICE() %>원</div>
-    <% 
-        } 
-    %>
+          <%
+          userDTO info1 = (userDTO) session.getAttribute("info");
+          
+          DealDAO dao = new DealDAO();
+          ProductDAO pro_dao = new ProductDAO();
+          
+          ArrayList<DealDTO> list = dao.findList(info1.getID());
+          
+          for(DealDTO deal : list){
+        	  ProductDTO item = pro_dao.proDetail(deal.getPRODUCT_ID());
+          
+          %>
+        	 <div class="purchase-row">
+            <div class="column"><%= deal.getCREATE_DT() %></div>
+            <div class="column"><img src="<%= item.getPROD_IMG() %>" alt="상품 이미지"></div>
+            <div class="column"><%= item.getPROD_NAME() %></div>
+            <div class="column"><%= deal.getDEAL_AMOUNT() %></div>
+          </div>
+        	 
+        	  
+          <%}%>
+
 </div>
 
         </div>
